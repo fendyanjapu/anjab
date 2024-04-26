@@ -1,0 +1,71 @@
+<script>
+	$(document).ready(function(){
+		$('#myTable').DataTable();
+	});
+</script>
+<div class="row">
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Tugas Pokok</h4>
+        <a href="<?php echo base_url('tugas_pokok/add') ?>" class="btn btn-primary btn-rounded btn-fw">
+					Tambah</a><br><br>
+					<a href="<?php echo base_url('tugas_pokok/add_excel') ?>" class="btn btn-success btn-rounded btn-fw">
+						Input Data Excel</a><br><br>
+        <div class="table-responsive">
+          <table class="table" id="myTable">
+            <thead>
+              <tr>
+                <th style="text-align:center">NO</th>
+                <th>Jabatan</th>
+                <th>Atasan</th>
+                <th>Uraian Tugas</th>
+                <th>Satuan Hasil</th>
+                <th>Jumlah Hasil</th>
+                <th>Waktu Penyelesaian (Jam)</th>
+                <th>Waktu Efektif</th>
+                <th>Kebutuhan Pegawai</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php $no=0; foreach ($query->result() as $key): ?>
+                <tr>
+                  <td style="text-align:center"><?php echo ++$no ?></td>
+                  <td><?php echo $key->nama_jabatan ?></td>
+                  <td>
+                      <?php
+                        $this->db->where('id', $key->id_jabatan_sopd);
+                        $q = $this->db->get('jabatan_sopd', 1);
+                        foreach ($q->result() as $val) {
+                            $id_atasan = $val->atasan;
+                        }
+                        $this->db->where('id_jabatan', $id_atasan);
+                        $q = $this->db->get('jabatan', 1);
+                        foreach ($q->result() as $val) {
+                            echo $val->nama_jabatan;
+                        }
+                      ?>
+                  </td>
+                  <td><?php echo $key->uraian_tugas ?></td>
+                  <td><?php echo $key->hasil_kerja ?></td>
+                  <td><?php echo $key->jumlah_hasil ?></td>
+                  <td><?php echo $key->waktu_penyelesaian_jam ?></td>
+                  <td><?php echo $key->waktu_efektif ?></td>
+                  <td><?php echo $key->kebutuhan_pegawai ?></td>
+                  <td>
+                    <a href="<?php echo base_url('tugas_pokok/edit/'.$key->key) ?>"
+											class="btn btn-inverse-success btn-fw">Edit</a>
+                    <a href="<?php echo base_url('tugas_pokok/delete/'.$key->key) ?>"
+											class="btn btn-inverse-danger btn-fw"
+											onclick="return confirm('Hapus Data?')">Hapus</a>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
