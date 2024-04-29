@@ -97,28 +97,28 @@
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
                                 <label class="text-white" for="search-bentuk"></label>
-                                {{-- <select name="id_sopd" id="id_sopd"
+                                <select name="id_sopd" id="id_sopd"
                                 class="form-control">
                                     <option value="">SOPD</option>
-                                      <?php foreach ($q_sopd->result() as $key): ?>
+                                      <?php foreach ($q_sopd->get() as $key): ?>
                                         <option value="<?php echo $key->id_sopd ?>">
                                           <?php echo $key->nama_sopd ?></option>
                                       <?php endforeach; ?>
-                                    </select> --}}
+                                    </select>
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
                                 <label class="text-white" for="search-tahun"></label>
-                                {{-- <select name="id_jabatan" id="id_jabatan"
+                                <select name="id_jabatan" id="id_jabatan"
                                 class="form-control">
                                     <option value="">JABATAN</option>
-                                    <?php foreach ($q_jabatan->result() as $key): ?>
+                                    <?php foreach ($q_jabatan->get() as $key): ?>
                                       <option value="<?php echo $key->id_jabatan ?>">
                                         <?php echo $key->nama_jabatan ?></option>
                                     <?php endforeach; ?>
-                                </select> --}}
+                                </select>
                             </div>
                         </div>
                          <!-- <div class="col-xs-12 col-sm-6">
