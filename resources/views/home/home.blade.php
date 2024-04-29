@@ -100,7 +100,7 @@
                                 <select name="id_sopd" id="id_sopd"
                                 class="form-control">
                                     <option value="">SOPD</option>
-                                      <?php foreach ($q_sopd->get() as $key): ?>
+                                      <?php foreach ($q_sopd as $key): ?>
                                         <option value="<?php echo $key->id_sopd ?>">
                                           <?php echo $key->nama_sopd ?></option>
                                       <?php endforeach; ?>
@@ -114,7 +114,7 @@
                                 <select name="id_jabatan" id="id_jabatan"
                                 class="form-control">
                                     <option value="">JABATAN</option>
-                                    <?php foreach ($q_jabatan->get() as $key): ?>
+                                    <?php foreach ($q_jabatan as $key): ?>
                                       <option value="<?php echo $key->id_jabatan ?>">
                                         <?php echo $key->nama_jabatan ?></option>
                                     <?php endforeach; ?>
