@@ -10,8 +10,8 @@ class homeController extends Controller
 {
     public function index()
     {
-        q_sopd = Sopd::all();
-        q_jabatan = Jabatan::all();
+        $q_sopd = Sopd::all();
+        $q_jabatan = Jabatan::all();
         return view('home/home', compact('q_sopd','q_jabatan'));
     }
 }
