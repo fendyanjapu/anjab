@@ -83,7 +83,7 @@
     <div class="container h-100">
       <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-10 align-self-end">
-            <img href="/" class="logo-agung" src="https://apps.baritokualakab.go.id/anjab/assets/img/logo.png" width="250">
+            <img href="{{ asset('asset/assets/img/logo.png')}}" class="logo-agung" src="https://apps.baritokualakab.go.id/anjab/assets/img/logo.png" width="250">
           <h3 class="text-jud">ANALISIS JABATAN</h3> <br>
             <h3 class="text-judu">KABUPATEN BARITO KUALA</h3>
           <hr class="divider my-4">
