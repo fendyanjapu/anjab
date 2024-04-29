@@ -21,15 +21,15 @@
   <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
   <!-- Theme CSS - Includes Bootstrap -->
-  <link href="{{ asset()}}asset/assets/css/creative.min.css" rel="stylesheet">
-  <script src="{{ asset()}}asset/assets/vendor/jquery/jquery.min.js"></script>
+  <link href="{{ asset('asset')}}/assets/css/creative.min.css" rel="stylesheet">
+  <script src="{{ asset('asset')}}/assets/vendor/jquery/jquery.min.js"></script>
   <script>
   $(document).ready(function(){
     $('#id_sopd').change(function(){
       var id_sopd = $(this).val();
       $.ajax({
         type   : "POST",
-        url    : "<?php echo base_url('home/jabatan') ?>",
+        url    : "",
         data   : 'id_sopd='+id_sopd,
         cache  : false,
         success: function(id_jabatan){
@@ -42,7 +42,7 @@
       var id_jabatan  = $('#id_jabatan').val();
       $.ajax({
         type   : "POST",
-        url    : "<?php echo base_url('home/cari') ?>",
+        url    : "",
         data   : "id_sopd="+id_sopd+"&id_jabatan="+id_jabatan,
         cache  : false,
         success: function(hasil){
@@ -97,28 +97,28 @@
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
                                 <label class="text-white" for="search-bentuk"></label>
-                                <select name="id_sopd" id="id_sopd"
+                                {{-- <select name="id_sopd" id="id_sopd"
                                 class="form-control">
                                     <option value="">SOPD</option>
                                       <?php foreach ($q_sopd->result() as $key): ?>
                                         <option value="<?php echo $key->id_sopd ?>">
                                           <?php echo $key->nama_sopd ?></option>
                                       <?php endforeach; ?>
-                                    </select>
+                                    </select> --}}
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
                                 <label class="text-white" for="search-tahun"></label>
-                                <select name="id_jabatan" id="id_jabatan"
+                                {{-- <select name="id_jabatan" id="id_jabatan"
                                 class="form-control">
                                     <option value="">JABATAN</option>
                                     <?php foreach ($q_jabatan->result() as $key): ?>
                                       <option value="<?php echo $key->id_jabatan ?>">
                                         <?php echo $key->nama_jabatan ?></option>
                                     <?php endforeach; ?>
-                                </select>
+                                </select> --}}
                             </div>
                         </div>
                          <!-- <div class="col-xs-12 col-sm-6">
