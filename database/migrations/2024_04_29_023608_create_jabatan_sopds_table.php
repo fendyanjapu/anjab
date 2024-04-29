@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('jabatan_sopds', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_jabatan')->unsigned();
-            $table->integer('id_sopd')->unsigned();
-            $table->integer('atasan')->unsigned();
+            $table->integer('id_jabatan');
+            $table->integer('id_sopd');
+            $table->integer('atasan');
             $table->timestamps();
 
-            $table->foreign('id_sopd')->references('id_sopd')->on('sopds')->onDelete('cascade');
-            $table->foreign('id_jabatan')->references('id_jabatan')->on('jabatans')->onDelete('cascade');
         });
     }
 

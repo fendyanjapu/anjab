@@ -26,30 +26,36 @@
   <script>
   $(document).ready(function(){
     $('#id_sopd').change(function(){
-      var id_sopd = $(this).val();
+        var id_sopd = $(this).val();
       $.ajax({
-        type   : "POST",
-        url    : "",
-        data   : 'id_sopd='+id_sopd,
+        type   : "GET",
+        url    : "{{ route('jabatan')}}",
+        data   : {
+            // '_token': '{{ csrf_token() }}', // Tambahkan token CSRF untuk keamanan
+            'id_sopd': id_sopd
+        },
         cache  : false,
-        success: function(id_jabatan){
-          $('#id_jabatan').html(id_jabatan);
+
+        success: function(data){
+        //   $('#id_jabatan').html(nama_jabatan);
+        //   $('#id_jabatan').html(JSON.stringify(data));
+        console.log(data[0]);
         }
       });
     });
-    $('#cari').click(function(){
-      var id_sopd     = $('#id_sopd').val();
-      var id_jabatan  = $('#id_jabatan').val();
-      $.ajax({
-        type   : "POST",
-        url    : "",
-        data   : "id_sopd="+id_sopd+"&id_jabatan="+id_jabatan,
-        cache  : false,
-        success: function(hasil){
-          $('#hasil').html(hasil);
-        }
-      });
-    });
+    // $('#cari').click(function(){
+    //   var id_sopd     = $('#id_sopd').val();
+    //   var id_jabatan  = $('#id_jabatan').val();
+    //   $.ajax({
+    //     type   : "POST",
+    //     url    : "",
+    //     data   : "id_sopd="+id_sopd+"&id_jabatan="+id_jabatan,
+    //     cache  : false,
+    //     success: function(hasil){
+    //       $('#hasil').html(hasil);
+    //     }
+    //   });
+    // });
   });
   </script>
 
@@ -76,14 +82,13 @@
       </div>
     </div>
   </nav>
-
   <!-- Masthead -->
   <header class="masthead page-section" id="beranda">
         <div class="nav-cont"><div class="nav-top"><a class="nav-top1" href="/"><i class="fa fa-info-circle" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> PERTANYAAN</a><a class="nav-top3" href="https://apps.baritokualakab.go.id/anjab/login" ><i class="fa fa-user-circle" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> MASUK</a></div></div>
     <div class="container h-100">
       <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-10 align-self-end">
-            <img href="{{ asset('asset/assets/img/logo.png')}}" class="logo-agung" src="https://apps.baritokualakab.go.id/anjab/assets/img/logo.png" width="250">
+            <img href="{{ asset('asset/assets/img/logo.png')}}" class="logo-agung" src="{{ asset('asset/assets/img/logo.png')}}" width="250">
           <h3 class="text-jud">ANALISIS JABATAN</h3> <br>
             <h3 class="text-judu">KABUPATEN BARITO KUALA</h3>
           <hr class="divider my-4">
@@ -100,10 +105,9 @@
                                 <select name="id_sopd" id="id_sopd"
                                 class="form-control">
                                     <option value="">SOPD</option>
-                                      <?php foreach ($q_sopd as $key): ?>
-                                        <option value="<?php echo $key->id_sopd ?>">
-                                          <?php echo $key->nama_sopd ?></option>
-                                      <?php endforeach; ?>
+                                      @foreach ($q_sopd as $key)
+                                            <option id="id_sopd" value="{{ $key->id_sopd }}">{{ $key->nama_sopd }}</option>
+                                      @endforeach
                                     </select>
                             </div>
                         </div>
@@ -114,10 +118,9 @@
                                 <select name="id_jabatan" id="id_jabatan"
                                 class="form-control">
                                     <option value="">JABATAN</option>
-                                    <?php foreach ($q_jabatan as $key): ?>
-                                      <option value="<?php echo $key->id_jabatan ?>">
-                                        <?php echo $key->nama_jabatan ?></option>
-                                    <?php endforeach; ?>
+                                    @foreach ($q_jabatan as $key)
+                                        <option id="id_jabatan" value="{{ $key->id_jabatan }}">{{ $key->nama_jabatan }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
