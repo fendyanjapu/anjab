@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class JabatanSopd extends Model
 {
     use HasFactory;
+
+
 }

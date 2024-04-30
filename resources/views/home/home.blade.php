@@ -25,21 +25,38 @@
   <script src="{{ asset('asset')}}/assets/vendor/jquery/jquery.min.js"></script>
   <script>
   $(document).ready(function(){
-    $('#id_sopd').change(function(){
+    $('#id_sopd').on('change', function(){
         var id_sopd = $(this).val();
       $.ajax({
         type   : "GET",
-        url    : "{{ route('jabatan')}}",
+        url    : '/jabatan/' + id_sopd,
         data   : {
-            // '_token': '{{ csrf_token() }}', // Tambahkan token CSRF untuk keamanan
-            'id_sopd': id_sopd
+            '_token': '{{ csrf_token() }}', // Tambahkan token CSRF untuk keamanan
+            // 'id_sopd': id_sopd
         },
+        dataType: 'json',
         cache  : false,
 
         success: function(data){
-        //   $('#id_jabatan').html(nama_jabatan);
-        //   $('#id_jabatan').html(JSON.stringify(data));
-        console.log(data[0]);
+            if(data){
+                $('#id_jabatan').empty();
+                $('#id_jabatan').append('<option value="">JABATAN</option>');
+                data.sort();
+                $.each(data, function(key, jabatan){
+                    $('select[name="id_jabatan"]').append(
+                        '<option value="' + key + '">' +
+                        jabatan + '</option>'
+                    );
+                });
+            }
+            else{
+                $('#id_jabatan').empty();
+            }
+            // var jabatanData = JSON.parse(data);
+            // // Mengambil nilai properti 'jabatan' dari objek jabatanData
+            // var jabatan = jabatanData.jabatan;
+            // // Menetapkan nilai jabatan ke dalam elemen dengan ID 'id_jabatan'
+            // $('#id_jabatan').val(jabatan);
         }
       });
     });
