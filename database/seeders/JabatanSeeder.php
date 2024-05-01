@@ -13,11 +13,13 @@ class JabatanSeeder extends Seeder
      */
     public function run(): void
     {
-
-        $old_jabatan = DB::connection('mysql2')->table('jabatan')->get();
+        $old_jabatan = DB::connection('mysql2')
+        ->table('jabatan')
+        ->get();
 
         foreach($old_jabatan as $new){
             DB::connection('mysql')->table('jabatans')->insert([
+                'id_jabatan' => $new->id_jabatan,
                 'nama_jabatan' => $new->nama_jabatan,
                 'id_unit_kerja' => $new->id_unit_kerja,
                 'kelas' => $new->kelas,

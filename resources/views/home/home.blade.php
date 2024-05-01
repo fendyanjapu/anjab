@@ -40,7 +40,7 @@
         success: function(data){
             if(data){
                 $('#id_jabatan').empty();
-                $('#id_jabatan').append('<option value="">JABATAN</option>');
+                $('#id_jabatan').append('<option value="">Jabatan</option>');
                 data.sort();
                 $.each(data, function(key, jabatan){
                     $('select[name="id_jabatan"]').append(

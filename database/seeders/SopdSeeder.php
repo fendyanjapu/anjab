@@ -15,15 +15,16 @@ class SopdSeeder extends Seeder
     {
         $old_sopd = DB::connection('mysql2')->table('sopd')->get();
 
-        foreach($old_sopd as $new){
+        foreach ($old_sopd as $new) {
             DB::connection('mysql')->table('sopds')->insert([
+                'id_sopd' => $new->id_sopd,
                 'nama_sopd' => $new->nama_sopd,
                 'username' => $new->username,
                 'password' => $new->password,
                 'level' => $new->level,
                 'jenis_sopd'=> $new->jenis_sopd,
-                'created_at' => NOW(),
-                'updated_at' => NOW(),
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
         }
     }

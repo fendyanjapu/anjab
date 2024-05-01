@@ -13,16 +13,19 @@ class JabatanSopdSeeder extends Seeder
      */
     public function run(): void
     {
-        $old_jabatansopd = DB::connection('mysql2')->table('jabatan_sopd')->get();
+        // Join tabel dari database kedua
+        $old_jabatansopd = DB::connection('mysql2')
+            ->table('jabatan_sopd')
+            ->get();
 
-        foreach($old_jabatansopd as $new){
-            DB::connection('mysql')->table('jabatan_sopds')->insert([
-                'id_jabatan' => $new->id_jabatan,
-                'id_sopd' => $new->id_sopd,
-                'atasan' => $new->atasan,
-                'created_at' => NOW(),
-                'updated_at' => NOW(),
-            ]);
-        }
+            foreach ($old_jabatansopd as $newjs) {
+                DB::connection('mysql')->table('jabatan_sopds')->insert([
+                    'id_jabatan' => $newjs->id_jabatan,
+                    'id_sopd' => $newjs->id_sopd,
+                    'atasan' => $newjs->atasan,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            }
     }
 }
