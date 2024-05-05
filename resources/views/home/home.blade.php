@@ -24,15 +24,17 @@
   <link href="{{ asset('asset')}}/assets/css/creative.min.css" rel="stylesheet">
   <script src="{{ asset('asset')}}/assets/vendor/jquery/jquery.min.js"></script>
   <script>
+
+    //select data by SOPD
   $(document).ready(function(){
     $('#id_sopd').on('change', function(){
-        var id_sopd = $(this).val();
+        var id_sopd = $('#id_sopd').val();
       $.ajax({
-        type   : "GET",
-        url    : '/jabatan/' + id_sopd,
+        type   : "POST",
+        url    : '/jabatan',
         data   : {
             '_token': '{{ csrf_token() }}', // Tambahkan token CSRF untuk keamanan
-            // 'id_sopd': id_sopd
+            'id_sopd': id_sopd
         },
         dataType: 'json',
         cache  : false,
@@ -41,41 +43,169 @@
             if(data){
                 $('#id_jabatan').empty();
                 $('#id_jabatan').append('<option value="">Jabatan</option>');
-                data.sort();
+                data.sort((a, b) => a.nama_jabatan.localeCompare(b.nama_jabatan));
                 $.each(data, function(key, jabatan){
                     $('select[name="id_jabatan"]').append(
-                        '<option value="' + key + '">' +
-                        jabatan + '</option>'
+                        '<option value="' + jabatan.id_jabatan + '">' +
+                        jabatan.nama_jabatan + '</option>'
                     );
                 });
             }
             else{
                 $('#id_jabatan').empty();
             }
-            // var jabatanData = JSON.parse(data);
-            // // Mengambil nilai properti 'jabatan' dari objek jabatanData
-            // var jabatan = jabatanData.jabatan;
-            // // Menetapkan nilai jabatan ke dalam elemen dengan ID 'id_jabatan'
-            // $('#id_jabatan').val(jabatan);
         }
       });
     });
-    // $('#cari').click(function(){
-    //   var id_sopd     = $('#id_sopd').val();
-    //   var id_jabatan  = $('#id_jabatan').val();
-    //   $.ajax({
-    //     type   : "POST",
-    //     url    : "",
-    //     data   : "id_sopd="+id_sopd+"&id_jabatan="+id_jabatan,
-    //     cache  : false,
-    //     success: function(hasil){
-    //       $('#hasil').html(hasil);
-    //     }
-    //   });
-    // });
+
+
+    // tombol pencarian data
+    $('#cari').on('click', function(){
+        var id_sopd = $('#id_sopd').val();
+        var id_jabatan = $('#id_jabatan').val();
+      $.ajax({
+        type   : "POST",
+        url : '/cari',
+        data   : {
+            '_token': '{{ csrf_token() }}', // Tambahkan token CSRF untuk keamanan
+            id_sopd: id_sopd,
+            id_jabatan: id_jabatan,
+        },
+        dataType: 'json',
+        cache  : false,
+
+        success: function(hasil){
+            var dataArray = hasil.data;
+            var links = hasil.links;
+            if(hasil){
+                var html =
+                        '<h2 class="text-white mt-0">Hasil Pencarian :</h2>' +
+                        '<hr class="divider light my-4">' +
+                        '<table class="table table-striped table-bordered">' +
+                        '<tr>' +
+                        '<th style="text-align: center">NO</th>' +
+                        '<th>SOPD</th>' +
+                        '<th>Jabatan</th>' +
+                        '<th></th>' +
+                        '</tr>';
+
+                $.each(dataArray, function(key, value) {
+                    var id = value.id;
+                    var printUrl = "{{ route('jabatan', ':id') }}";
+                    printUrl = printUrl.replace(':id', id);
+                    var nama_sopd = value.relsopd.nama_sopd;
+                    var nama_jabatan = value.rel_jab.nama_jabatan;
+
+                    html += '<tr>' +
+                            '<td>' + (key + 1) + '</td>' +
+                            '<td>' + nama_sopd + '</td>' +
+                            '<td>' + nama_jabatan + '</td>' +
+                            '<td><a class="buttens" href="' + printUrl + '"  target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a></td>' +
+                            '</tr>';
+
+                     if (links) {
+
+                        var paginationDiv = $('#paginate');
+                        // Buat variabel untuk menyimpan HTML tautan-tautan paginasi
+                        var paginationHTML = '<div colspan="4" class="bg-success py-2 d-block">';
+                        // Loop melalui setiap tautan paginasi dan tambahkan HTML-nya ke variabel paginationHTML
+                        links.forEach(function(link) {
+                            paginationHTML += '<a href="' + link.url + '" style="margin: 0 5px;">' + link.label + '</a> ';
+                        });
+                        paginationHTML += '</div>';
+                        // Masukkan HTML tautan-tautan paginasi ke dalam elemen div pagination-links
+                        paginationDiv.html(paginationHTML);
+                    }
+                });
+
+
+                html += '</table>';
+
+                $('#hasil').html(html);
+            }
+            else{
+                $('#hasil').hide();
+            }
+        }
+      });
+    });
+
+    // paginate agar tidak ganti halaman
+    $(document).on('click', '#paginate a', function(e) {
+        e.preventDefault(); // Mencegah perilaku bawaan dari tautan
+        var id_sopd = $('#id_sopd').val();
+        var id_jabatan = $('#id_jabatan').val();
+        // Ambil URL dari tautan yang diklik
+        var url = $(this).attr('href');
+
+        $.ajax({
+            type: "post",
+            url: url,
+            data   : {
+                '_token': '{{ csrf_token() }}',
+                id_sopd: id_sopd,
+                id_jabatan: id_jabatan,
+            },
+            dataType: 'json',
+            cache: false,
+
+            success: function(response) {
+                var dataArray = response.data;
+                var links = response.links;
+
+                // Buat HTML baru untuk tabel hasil pencarian
+                var html =
+                    '<h2 class="text-white mt-0">Hasil Pencarian :</h2>' +
+                    '<hr class="divider light my-4">' +
+                    '<table class="table table-striped table-bordered">' +
+                    '<tr>' +
+                    '<th style="text-align: center">NO</th>' +
+                    '<th>SOPD</th>' +
+                    '<th>Jabatan</th>' +
+                    '<th></th>' +
+                    '</tr>';
+
+                $.each(dataArray, function(key, value) {
+                    var id = value.id;
+                    var printUrl = "{{ route('jabatan', ':id') }}";
+                    printUrl = printUrl.replace(':id', id);
+                    var nama_sopd = value.relsopd.nama_sopd;
+                    var nama_jabatan = value.rel_jab.nama_jabatan;
+
+                    html += '<tr>' +
+                            '<td>' + (key + 1) + '</td>' +
+                            '<td>' + nama_sopd + '</td>' +
+                            '<td>' + nama_jabatan + '</td>' +
+                            '<td><a class="buttens" href="' + printUrl + '"  target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a></td>' +
+                            '</tr>';
+                });
+
+                    // Tangani paginasi
+                    if (links) {
+                        var paginationDiv = $('#paginate');
+                        var paginationHTML = '<div colspan="4" class="bg-success py-2 d-block">';
+
+                        links.forEach(function(link) {
+                            paginationHTML += '<a href="' + link.url + '" style="margin: 0 5px;">' + link.label + '</a> ';
+                        });
+
+                        paginationHTML += '</div>';
+                        paginationDiv.html(paginationHTML);
+                    }
+
+                // Tutup tabel
+                html += '</table>';
+                $('#hasil').html(html);
+
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+    });
+
   });
   </script>
-
 </head>
 
 <body id="page-top">
@@ -177,6 +307,9 @@
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
           <div class="" id="hasil">
+
+          </div>
+          <div class="" id="paginate">
 
           </div>
         </div>

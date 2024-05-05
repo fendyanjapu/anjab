@@ -20,6 +20,7 @@ class JabatanSopdSeeder extends Seeder
 
             foreach ($old_jabatansopd as $newjs) {
                 DB::connection('mysql')->table('jabatan_sopds')->insert([
+                    'id' => $newjs->id,
                     'id_jabatan' => $newjs->id_jabatan,
                     'id_sopd' => $newjs->id_sopd,
                     'atasan' => $newjs->atasan,

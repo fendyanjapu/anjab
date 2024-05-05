@@ -16,5 +16,6 @@ use App\Http\Controllers\homeController;
 
 Route::get('/', [homeController::class,'index'])->name('home');
 
-Route::get('/jabatan/{id}', [homeController::class,'jabatan'])->name('jabatan');
+Route::post('/jabatanadd', [homeController::class,'jabatan'])->name('jabatan');
+Route::post('/cari', [homeController::class,'cari']);
 
