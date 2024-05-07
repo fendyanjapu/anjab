@@ -11,7 +11,6 @@
   <title>Login - ANJAB Barito Kuala</title>
 
   <!-- Font Awesome Icons -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'/>
 
   <!-- Google Fonts -->
@@ -19,10 +18,9 @@
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
   <!-- Plugin CSS -->
-  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
-  <!-- Theme CSS - Includes Bootstrap -->
-  <link href="<?php echo base_url() ?>assets/css/creative.min.css" rel="stylesheet">
+  <link href="{{ asset('asset')}}/assets/css/creative.min.css" rel="stylesheet">
+  <script src="{{ asset('asset')}}/assets/vendor/jquery/jquery.min.js"></script>
 
 </head>
 
@@ -31,16 +29,17 @@
 
   <!-- Masthead -->
   <header class="masthead page-section" id="beranda">
-  <div class="nav-cont"><div class="nav-top nav-jew"><a class="nav-top1" href="/"><i class="fa fa-info-circle" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> PERTANYAAN</a><a class="nav-top3 nav-top5" href="https://apps.baritokualakab.go.id/anjab" ><i class="fa fa-long-arrow-left" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> KEMBALI KE HOMEPAGE</a></div></div>
+  <div class="nav-cont"><div class="nav-top nav-jew"><a class="nav-top1" href="/"><i class="fa fa-info-circle" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> PERTANYAAN</a><a class="nav-top3 nav-top5" href="{{ route('home')}}" ><i class="fa fa-long-arrow-left" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> KEMBALI KE HOMEPAGE</a></div></div>
     <div class="container h-100">
       <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-10 align-self-end">
-            <img href="/" class="logo-agung" src="https://apps.baritokualakab.go.id/anjab/assets/img/logo.png" width="250">
+          <img  class="logo-agung" src="{{ asset('asset/assets/img/logo.png')}}" width="250">
           <div class="logen-text">Selamat Datang <br> di Website ANJAB Barito Kuala</div>
           <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <form action="<?php echo base_url('login/signin') ?>" method="post">
+          <form action="{{ route('login_aksi')}}" method="post">
+            @method('post')	@csrf
             <div class="collapse show input-group" id="collapseAdvanceSearch">
                 <div class="card card-body">
                     <div class="row">
@@ -74,16 +73,9 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/creative.min.js"></script>
 
 </body>
 
 </html>
+@include('sweetalert::alert')

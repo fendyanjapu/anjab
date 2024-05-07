@@ -7,6 +7,8 @@ use App\Models\Jabatan;
 use App\Models\JabatanSopd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Session;
+use Alert;
 
 class homeController extends Controller
 {
@@ -64,5 +66,32 @@ class homeController extends Controller
 
         return response()->json($hasil);
 
+    }
+    public function login()
+    {
+        return view('home/login');
+    }
+    public function login_aksi(Request $request)
+    {
+        $cek = array('username'=>$request->input('username'),'password'=>sha1($request->input('password')));
+        $get_data = Sopd::where($cek)->get();
+        $cek_hasil = Sopd::where($cek)->count();
+        if($cek_hasil == null){
+            Session::flush();
+            Alert::error('ops!',"Username Atau Password Anda Salah");
+            return redirect()->to('login');
+        }
+        else{
+            Session::push('cek', 1);
+            Session::push('cek', 'admin');
+            toast('Anda berhasil login','success');
+            return redirect()->to('admin');
+        }
+    }
+    public function logout()
+    {
+        Session::flush();
+        Alert::success('Hore!',"Anda berhasil logout");
+        return redirect()->to('login');
     }
 }

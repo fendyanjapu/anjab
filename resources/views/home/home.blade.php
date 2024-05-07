@@ -210,32 +210,13 @@
 
 <body id="page-top">
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">ANJAB BATOLA</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto my-2 my-lg-0">
-        <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact"><i class="fa fa-question-circle" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> Pertanyaan</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href=""><i class="fa fa-user-circle" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> Masuk</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
   <!-- Masthead -->
   <header class="masthead page-section" id="beranda">
-        <div class="nav-cont"><div class="nav-top"><a class="nav-top1" href="/"><i class="fa fa-info-circle" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> PERTANYAAN</a><a class="nav-top3" href="https://apps.baritokualakab.go.id/anjab/login" ><i class="fa fa-user-circle" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> MASUK</a></div></div>
+        <div class="nav-cont"><div class="nav-top"><a class="nav-top1" href="/"><i class="fa fa-info-circle" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> PERTANYAAN</a><a class="nav-top3" href="{{ route('login')}}" ><i class="fa fa-user-circle" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> MASUK</a></div></div>
     <div class="container h-100">
       <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-10 align-self-end">
-            <img href="{{ asset('asset/assets/img/logo.png')}}" class="logo-agung" src="{{ asset('asset/assets/img/logo.png')}}" width="250">
+            <img  class="logo-agung" src="{{ asset('asset/assets/img/logo.png')}}" width="250">
           <h3 class="text-jud">ANALISIS JABATAN</h3> <br>
             <h3 class="text-judu">KABUPATEN BARITO KUALA</h3>
           <hr class="divider my-4">
@@ -328,3 +309,4 @@
 </body>
 
 </html>
+@include('sweetalert::alert')
