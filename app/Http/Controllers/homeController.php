@@ -74,8 +74,6 @@ class homeController extends Controller
     public function login_aksi(Request $request)
     {
         $cek = array('username'=>$request->input('username'),'password'=>sha1($request->input('password')));
-        $get_data = Sopd::where($cek)->get();
-        $level = $get_data[0]['level'];
         $cek_hasil = Sopd::where($cek)->count();
         if($cek_hasil == null){
             Session::flush();
@@ -83,6 +81,8 @@ class homeController extends Controller
             return redirect()->to('login');
         }
         else{
+            $get_data = Sopd::where($cek)->get();
+            $level = $get_data[0]['level'];
             Session::push('cek', 1);
             Session::push('level', $level);
             toast('Anda berhasil login','success');

@@ -53,7 +53,7 @@
   <!-- Masthead -->
   <header class="masthead page-section" id="menu">
         <div class="nav-cont"><div class="nav-top nav-jew">
-          <a class="nav-top1 nav-top-bg" href="#) ?>">
+          <a class="nav-top1 nav-top-bg" href="{{ route('logout') }}">
             <i class="fa fa-sign-out" style="font-size:20px;margin-right:3px;" aria-hidden="true">
             </i> LOGOUT</a>
           </div></div>
