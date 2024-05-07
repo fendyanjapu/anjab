@@ -23,4 +23,7 @@ Route::get('logout', [homeController::class,'logout'])->name('logout');
 Route::post('/jabatan', [homeController::class,'jabatan'])->name('jabatan');
 Route::post('/cari', [homeController::class,'cari']);
 
-Route::get('/admin', [adminController::class,'index'])->name('admin');
+Route::group(['middleware' => 'ceklog'], function () {
+    Route::get('/admin', [adminController::class,'index'])->name('admin');
+});
+

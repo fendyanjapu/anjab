@@ -58,16 +58,19 @@
             </i> LOGOUT</a>
           </div></div>
     <div class="container h-100">
-              <?php if (Session::get('level')==1): ?>
-                <div class="col-lg-3 col-md-6 text-center" style="float: top">
-                  <div class="mt-5">
-                    <a href="#" class="faqs">
-                    <i class="fas fa-3x fa-users text-primary mb-2"></i>
-                    <div class="text-tot">Jabatan</div>
-                    <p class="text-muted mb-0"></p>
-                    </a>
-                  </div>
-                </div>
+              <?php if (Session::get('level')[0] == 1): ?>
+                <div class="row h-50 align-items-center justify-content-center text-center">
+                  <div class="container">
+                     <div class="row">
+               <div class="col-lg-3 col-md-6 text-center">
+                 <div class="mt-5">
+                   <a href={{ route('jabatan') }}" class="faqs">
+                   <i class="fas fa-3x fa-users text-primary mb-2"></i>
+                   <div class="text-tot">Jabatan</div>
+                   <p class="text-muted mb-0"></p>
+                   </a>
+                 </div>
+               </div>
               <?php else: ?>
                 <div class="row h-100 align-items-center justify-content-center text-center">
                    <div class="container">
