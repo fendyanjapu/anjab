@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\adminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,4 @@ Route::get('logout', [homeController::class,'logout'])->name('logout');
 Route::post('/jabatan', [homeController::class,'jabatan'])->name('jabatan');
 Route::post('/cari', [homeController::class,'cari']);
 
+Route::get('/admin', [adminController::class,'index'])->name('admin');
