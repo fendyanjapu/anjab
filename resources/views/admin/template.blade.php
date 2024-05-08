@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Analisa Jabatan</title>
     <!-- base:css -->
-    <link rel="stylesheet" href="{{ asset('asset') }}assets_admin/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="{{ asset('asset') }}assets_admin/vendors/base/vendor.bundle.base.css">
+    <link rel="stylesheet" href="{{ asset('asset') }}/assets_admin/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="{{ asset('asset') }}/assets_admin/vendors/base/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- plugin css for this page -->
-    <link rel="stylesheet" href="{{ asset('asset') }}assets_admin/vendors/select2/select2.min.css">
-    <link rel="stylesheet" href="{{ asset('asset') }}assets_admin/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('asset') }}/assets_admin/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="{{ asset('asset') }}/assets_admin/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="{{ asset('asset') }}assets_admin/css/style.css">
+    <link rel="stylesheet" href="{{ asset('asset') }}/assets_admin/css/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="{{ asset('asset') }}assets_admin/images/favicon.png" />
+    <link rel="shortcut icon" href="{{ asset('asset') }}/assets_admin/images/favicon.png" />
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <!-- DataTables -->
@@ -30,15 +30,10 @@
       <nav class="navbar top-navbar col-lg-12 col-12 p-0">
         <div class="container-fluid">
           <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
-            <!-- <ul class="navbar-nav navbar-nav-left">
-              <a href="<?php echo base_url() ?>">
-                <img src="<?php echo base_url('assets/') ?>images/logo.jpeg" alt="logo"
-                height="80px"/>
-              </a>
-            </ul> -->
+
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 <a class="text-dark font-weight-bold mb-2" href="{{ route('admin') }}">
-                  <img src="{{ asset('asset/assets_admin/HOME_.png') }}"
+                  <img src="{{ asset('asset/assets_admin/images/HOME_.png') }}"
                   style="width:120px"></a><br>
             </div>
               <ul class="navbar-nav navbar-nav-right">
@@ -86,21 +81,21 @@
 		<!-- page-body-wrapper ends -->
     </div>
     <!-- base:js -->
-    <!-- <script src="{{ asset('asset') }}assets_admin/vendors/base/vendor.bundle.base.js"></script> -->
+    <!-- <script src="{{ asset('asset') }}/assets_admin/vendors/base/vendor.bundle.base.js"></script> -->
     <!-- endinject -->
     <!-- Plugin js for this page-->
     <!-- End plugin js for this page-->
     <!-- inject:js -->
-    <script src="{{ asset('asset') }}assets_admin/js/template.js"></script>
+    <script src="{{ asset('asset') }}/assets_admin/js/template.js"></script>
     <!-- endinject -->
     <!-- plugin js for this page -->
-    <script src="{{ asset('asset') }}assets_admin/vendors/typeahead.js/typeahead.bundle.min.js"></script>
-    <script src="{{ asset('asset') }}assets_admin/vendors/select2/select2.min.js"></script>
+    <script src="{{ asset('asset') }}/assets_admin/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <script src="{{ asset('asset') }}/assets_admin/vendors/select2/select2.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- Custom js for this page-->
-    <script src="{{ asset('asset') }}assets_admin/js/file-upload.js"></script>
-    <script src="{{ asset('asset') }}assets_admin/js/typeahead.js"></script>
-    <script src="{{ asset('asset') }}assets_admin/js/select2.js"></script>
+    <script src="{{ asset('asset') }}/assets_admin/js/file-upload.js"></script>
+    <script src="{{ asset('asset') }}/assets_admin/js/typeahead.js"></script>
+    <script src="{{ asset('asset') }}/assets_admin/js/select2.js"></script>
     <!-- End custom js for this page-->
   </body>
 </html>

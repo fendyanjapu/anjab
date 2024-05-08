@@ -9,7 +9,7 @@ class menuSatuController extends Controller
     // ini menu jabatan
 
     public function indexJabatan(){
-        return view('admin.jabatan_sopd.index');
+        return view('admin/jabatan_sopd/index');
     }
 
 
