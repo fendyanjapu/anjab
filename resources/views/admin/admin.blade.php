@@ -53,6 +53,7 @@
   <!-- Masthead -->
   <header class="masthead page-section" id="menu">
         <div class="nav-cont"><div class="nav-top nav-jew">
+            <span>{{ session('nama_sopd') }}</span>
           <a class="nav-top1 nav-top-bg" href="{{ route('logout') }}">
             <i class="fa fa-sign-out" style="font-size:20px;margin-right:3px;" aria-hidden="true">
             </i> LOGOUT</a>
@@ -64,7 +65,7 @@
                      <div class="row">
                <div class="col-lg-3 col-md-6 text-center">
                  <div class="mt-5">
-                   <a href={{ route('jabatan') }}" class="faqs">
+                   <a href={{ route('jabatan.index') }}" class="faqs">
                    <i class="fas fa-3x fa-users text-primary mb-2"></i>
                    <div class="text-tot">Jabatan</div>
                    <p class="text-muted mb-0"></p>
@@ -77,7 +78,7 @@
                       <div class="row">
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('jabatan.index') }}" class="faqs">
                     <i class="fas fa-3x fa-users text-primary mb-2"></i>
                     <div class="text-tot">Jabatan</div>
                     <p class="text-muted mb-0"></p>

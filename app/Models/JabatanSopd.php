@@ -22,5 +22,4 @@ class JabatanSopd extends Model
     public function RelJab(){
         return $this->belongsTo(Jabatan::class, 'id_jabatan', 'id_jabatan');
     }
-
 }

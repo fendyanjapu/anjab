@@ -82,10 +82,13 @@ class homeController extends Controller
         }
         else{
             $get_data = Sopd::where($cek)->get();
-            $level = $get_data[0]['level'];
             Session::push('cek', 1);
-            Session::push('level', $level);
+            Session::put('id_sopd', $get_data[0]['id_sopd']);
+            Session::put('username', $get_data[0]['username']);
+            Session::put('nama_sopd', $get_data[0]['nama_sopd']);
+            Session::put('level', $get_data[0]['level']);
             toast('Anda berhasil login','success');
+
             return redirect()->to('admin');
         }
     }
