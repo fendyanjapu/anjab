@@ -1,3 +1,6 @@
+@extends('../../template')
+@section('isi')
+
 <script>
 	$(document).ready(function(){
 		$('#myTable').DataTable();
@@ -8,7 +11,7 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Jabatan</h4>
-        <a href="<?php echo base_url('jabatan_sopd/add') ?>"
+        <a href=""
 					class="btn btn-primary btn-rounded btn-fw">Tambah</a><br><br>
         <div class="table-responsive">
           <table class="table" id="myTable">
@@ -21,7 +24,7 @@
 								<th></th>
               </tr>
             </thead>
-            <tbody>
+            {{-- <tbody>
               <?php $no=0; foreach ($query->result() as $key): ?>
                 <tr>
                   <td style="text-align:center"><?php echo ++$no ?></td>
@@ -45,10 +48,13 @@
                   </td>
                 </tr>
               <?php endforeach; ?>
-            </tbody>
+            </tbody> --}}
           </table>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+    
+@endsection
