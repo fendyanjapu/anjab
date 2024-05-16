@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jabatan_sopds', function (Blueprint $table) {
-            $table->id();
-            $table->integer('id_jabatan');
-            $table->integer('id_sopd');
-            $table->integer('atasan')->nullable();
-            $table->timestamps();
+        Schema::create('iktisar_jabatans', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('id_jabatan_sopd');
+            $table->longText('iktisar')->nullable();
 
+            $table->string('name', 100)->nullable()->default('text');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('jabatan_sopds');
+        Schema::dropIfExists('iktisar_jabatans');
     }
 };

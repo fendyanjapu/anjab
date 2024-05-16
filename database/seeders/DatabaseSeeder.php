@@ -16,7 +16,10 @@ class DatabaseSeeder extends Seeder
             SopdSeeder::class,
             unitkerjaSeeder::class,
             JabatanSeeder::class,
-            JabatanSopdSeeder::class
+            JabatanSopdSeeder::class,
+            KualifikasiJabatanSeeder::class,
+            IktisarJabatanSeeder::class,
+            TugasPokokSeeder::class,
         ]);
     }
 }

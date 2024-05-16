@@ -10,8 +10,8 @@
   <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Jabatan</h4>
-        <a href="{{ route('jabatan.add') }}"
+        <h4 class="card-title">Kualifikasi Jabatan</h4>
+        <a href="{{ route('kualifikasi.add') }}"
 			class="btn btn-primary btn-rounded btn-fw">Tambah</a><br><br>
         <div class="table-responsive">
           <table class="table" id="myTable">
@@ -20,7 +20,9 @@
                 <th style="text-align:center">NO</th>
                 <th>Jabatan</th>
                 <th>Atasan</th>
-                <th>Unit Kerja</th>
+                <th>Pendidikan Formal</th>
+                <th>Pendidikan Pelatihan</th>
+                <th>Pengalaman Kerja</th>
 				<th></th>
               </tr>
             </thead>
@@ -32,18 +34,16 @@
                         <td>
                             {{ $item->atasan_nama }}
                         </td>
-                        <td>{{ $item->unit_kerja }}</td>
+                        <td>{{ $item->pendidikan_formal }}</td>
+                        <td>{{ $item->pendidikan_pelatihan }}</td>
+                        <td>{{ $item->pengalaman_kerja }}</td>
                         <td>
-                                <div style="display: flex; gap: 10px;">
-                                    <a href="{{ route('jabatan.edit', $item->id) }}"
-                                       class="btn btn-inverse-success btn-fw">Edit</a>
-                                    <form method="POST" id="delete_form" action="{{ route('jabatan.hapus', $item->id) }}">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-inverse-danger btn-fw" onclick="return confirm('Hapus Data?')">Hapus</button>
-                                    </form>
-                                </div>
-                        </td>
+                            <a href="{{ route('kualifikasi.edit', $item->id) }}"
+                                                    class="btn btn-inverse-success btn-fw">Edit</a>
+                            <a href="{{ route('kualifikasi.hapus', $item->id) }}"
+                                                    class="btn btn-inverse-danger btn-fw"
+                                                    onclick="return confirm('Hapus Data?')">Hapus</a>
+                          </td>
                 </tr>
                 @endforeach
             </tbody>

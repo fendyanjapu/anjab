@@ -53,7 +53,6 @@
   <!-- Masthead -->
   <header class="masthead page-section" id="menu">
         <div class="nav-cont"><div class="nav-top nav-jew">
-            <span>{{ session('nama_sopd') }}</span>
           <a class="nav-top1 nav-top-bg" href="{{ route('logout') }}">
             <i class="fa fa-sign-out" style="font-size:20px;margin-right:3px;" aria-hidden="true">
             </i> LOGOUT</a>
@@ -87,7 +86,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('iktisar.index') }}" class="faqs">
                     <i class="fas fa-3x fa-server text-primary mb-2"></i>
                     <div class="text-tot">Ikhtisar Jabatan</div>
                     <p class="text-muted mb-0"></p>
@@ -96,7 +95,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('kualifikasi.index') }}" class="faqs">
                     <i class="fas fa-3x fa-tag text-primary mb-2"></i>
                     <div class="text-tot">Kualifikasi Jabatan</div>
                     <p class="text-muted mb-0"></p>
@@ -105,7 +104,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('tugasPokok.index') }}" class="faqs">
                     <i class="fas fa-3x fa-list-alt text-primary mb-2"></i>
                     <div class="text-tot">Tugas Pokok (ABK)</div>
                     <p class="text-muted mb-0"></p>

@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Jabatan extends Model
+class iktisar_jabatan extends Model
 {
     use HasFactory;
 
-    public function UnitKerja(){
-        return $this->belongsTo(Unit_kerja::class, 'id_unit_kerja','id');
-    }
+    protected $fillable = [
+        'id_jabatan_sopd',
+        'iktisar',
+    ];
 }

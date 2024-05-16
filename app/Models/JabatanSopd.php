@@ -22,4 +22,9 @@ class JabatanSopd extends Model
     public function RelJab(){
         return $this->belongsTo(Jabatan::class, 'id_jabatan', 'id_jabatan');
     }
+
+    // public function Jabatan()
+    // {
+    //     return $this->hasMany(Jabatan::class, 'id_jabatan', 'id_jabatan');
+    // }
 }
