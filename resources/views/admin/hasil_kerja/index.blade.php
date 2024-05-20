@@ -12,6 +12,9 @@
       <div class="card-body">
         <h4 class="card-title">Hasil Kerja</h4>
         <a href="{{ route('hasilKerja.add') }}" class="btn btn-primary btn-rounded btn-fw">Tambah</a><br><br>
+        <h4 class="card-title">Jabatan</h4>
+        <a href="{{ route('jabatan.add') }}"
+			class="btn btn-primary btn-rounded btn-fw">Tambah</a><br><br>
         <div class="table-responsive">
           <table class="table" id="myTable">
             <thead>

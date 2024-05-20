@@ -84,4 +84,3 @@ Route::post('admin/bahan-kerja/save', [menuDuaController::class, 'saveBahanKerja
 Route::get('admin/bahan-kerja/{id}/edit', [menuDuaController::class, 'editBahanKerja'])->name('bahanKerja.edit');
 Route::put('admin/bahan-kerja/{id}/update', [menuDuaController::class, 'updateBahanKerja'])->name('bahanKerja.update');
 Route::get('admin/bahan-kerja/{id}/hapus', [menuDuaController::class, 'hapusBahanKerja'])->name('bahanKerja.hapus');
-
