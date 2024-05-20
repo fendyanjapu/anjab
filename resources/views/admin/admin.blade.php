@@ -113,7 +113,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('hasilKerja.index') }}" class="faqs">
                     <i class="fas fa-3x fa-table text-primary mb-2"></i>
                     <div class="text-tot">Hasil Kerja</div>
                     <p class="text-muted mb-0"></p>
@@ -122,7 +122,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('bahanKerja.index') }}" class="faqs">
                     <i class="fas fa-3x fa-cog text-primary mb-2"></i>
                     <div class="text-tot">Bahan Kerja</div>
                     <p class="text-muted mb-0"></p>

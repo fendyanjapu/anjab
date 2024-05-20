@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             KualifikasiJabatanSeeder::class,
             IktisarJabatanSeeder::class,
             TugasPokokSeeder::class,
+            HasilKerjaSeeder::class,
+            BahanKerjaSeeder::class,
         ]);
     }
 }

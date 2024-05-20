@@ -13,8 +13,8 @@
         <h4 class="card-title">Tugas Pokok</h4>
         <a href="{{ route('tugasPokok.add') }}" class="btn btn-primary btn-rounded btn-fw">
 					Tambah</a><br><br>
-					{{-- <a href="<?php echo base_url('tugas_pokok/add_excel') ?>" class="btn btn-success btn-rounded btn-fw">
-						Input Data Excel</a><br><br> --}}
+					<a href="{{ route('tugasPokok.excel') }}" class="btn btn-success btn-rounded btn-fw">
+						Input Data Excel</a><br><br>
         <div class="table-responsive">
           <table class="table" id="myTable">
             <thead>
