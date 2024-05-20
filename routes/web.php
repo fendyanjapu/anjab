@@ -63,3 +63,10 @@ Route::get('admin/tugas-pokok/{id}/edit', [menuSatuController::class, 'editTugas
 Route::put('admin/tugas-pokok/{id}/update', [menuSatuController::class, 'updateTugasPokok'])->name('tugasPokok.update');
 Route::get('admin/tugas-pokok/{id}/hapus', [menuSatuController::class, 'hapusTugasPokok'])->name('tugasPokok.hapus');
 
+// Route Menu Hasil Kinerja
+Route::get('admin/hasil-kinerja', [menuDuaController::class, 'indexHasilKinerja'])->name('hasilkinerja.index');
+Route::get('admin/hasil-kinerja/add', [menuDuaController::class, 'addTuHasilKinerja'])->name('hasilkinerja.add');
+Route::post('admin/hasil-kinerja/save', [menuDuaController::class, 'saveTHasilKinerja'])->name('hasilkinerja.save');
+Route::get('admin/hasil-kinerja/{id}/edit', [menuDuaController::class, 'editTHasilKinerja'])->name('hasilkinerja.edit');
+Route::put('admin/hasil-kinerja/{id}/update', [menuDuaController::class, 'updatHasilKinerja'])->name('hasilkinerja.update');
+Route::get('admin/hasil-kinerja/{id}/hapus', [menuDuaController::class, 'hapusHasilKinerja'])->name('hasilkinerja.hapus');
