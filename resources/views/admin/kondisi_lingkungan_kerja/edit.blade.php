@@ -1,10 +1,11 @@
 @extends('admin.template')
 @section('isi')
+
 <center>
   <div class="col-md-7">
     <div class="card-body">
       <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
-        Iktisar Jabatan</button>
+        Kondisi Lingkungan Kerja</button>
         <br><br>
     </div>
   </div>
@@ -14,7 +15,7 @@ style="position: relative;margin: auto;left:0;right:0;top:0; bottom:0;">
   <div class="card">
     <div class="card-body">
         <form class="forms-sample" method="post"
-        action="{{ route('iktisar.update', $data->id) }}">
+        action="{{ route('KondisiLingkunganKerja.update', $data->id) }}">
         @csrf
         @method('PUT')
             <input type="hidden" name="id" value="{{ $data->id }}">
@@ -24,25 +25,27 @@ style="position: relative;margin: auto;left:0;right:0;top:0; bottom:0;">
                 <select class="js-example-basic-single w-100" name="id_jabatan_sopd">
                   <option value=""></option>
                   @foreach ($jsopd as $item)
-                    <option value="{{ $item->id }}" {{ $item->id == $data->id_jabatan_sopd ? 'selected' : '' }}>{{ $item->jabatan_nama }}
-
-                    @if ($item->atasan_id)
-                        | atasan: {{ $item->atasan_nama }}
-                    @endif
-
-                    </option>
+                  <option value="{{ $item->id }}" {{ $item->id == $data->id_jabatan_sopd ? 'selected' : '' }}>
+                          {{ $item->jabatan_nama }}
+                          @if ($item->atasan_id)
+                              | atasan: {{ $item->atasan_nama }}
+                          @endif
+                  </option>
                   @endforeach
                 </select>
               </div>
-              <label class="col-sm-3 col-form-label">Iktisar</label>
+              <label class="col-sm-3 col-form-label">Aspek</label>
               <div class="col-sm-9">
-                <input type="text" name="iktisar"
-                value="{{ $data->iktisar }}" class="form-control">
+                <input type="text" name="aspek" value="{{ $data->aspek }}" class="form-control">
+              </div>
+              <label class="col-sm-3 col-form-label">Faktor</label>
+              <div class="col-sm-9">
+                <input type="text" name="faktor" value="{{ $data->faktor }}" class="form-control">
               </div>
             </div>
           <center>
             <button type="submit" class="btn btn-primary mr-2">Simpan</button>
-            <a href="{{ route('iktisar.index') }}" class="btn btn-light" onclick="self.history.back()">Batal</a>
+            <a href="{{ route('index.save') }}" class="btn btn-light" onclick="self.history.back()">Batal</a>
           </center>
         </form>
     </div>

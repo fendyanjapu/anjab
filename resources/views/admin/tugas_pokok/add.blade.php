@@ -78,7 +78,7 @@ style="position: relative;margin: auto;left:0;right:0;top:0; bottom:0;">
           </div>
           <center>
             <button type="submit" class="btn btn-primary mr-2">Simpan</button>
-            <a href="#" class="btn btn-light" onclick="self.history.back()">Batal</a>
+            <a href="{{ route('tugasPokok.index') }}" class="btn btn-light" onclick="self.history.back()">Batal</a>
           </center>
         </form>
     </div>

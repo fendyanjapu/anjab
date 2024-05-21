@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\adminController;
-use App\Http\Controllers\menuDuaController;
 use App\Http\Controllers\menuSatuController;
+use App\Http\Controllers\menuDuaController;
+use App\Http\Controllers\menuTigaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,3 +103,39 @@ Route::post('admin/tanggung-jawab/save', [menuDuaController::class, 'saveTanggun
 Route::get('admin/tanggung-jawab/{id}/edit', [menuDuaController::class, 'editTanggungJawab'])->name('tanggungJawab.edit');
 Route::put('admin/tanggung-jawab/{id}/update', [menuDuaController::class, 'updateTanggungJawab'])->name('tanggungJawab.update');
 Route::get('admin/tanggung-jawab/{id}/hapus', [menuDuaController::class, 'hapusTanggungJawab'])->name('tanggungJawab.hapus');
+
+// Route Menu Wewenang
+Route::get('admin/wewenang', [menuTigaController::class, 'indexWewenang'])->name('Wewenang.index');
+Route::get('admin/wewenang/add', [menuTigaController::class, 'addWewenang'])->name('Wewenang.add');
+Route::post('admin/wewenang/jumlah_kolom', [menuTigaController::class, 'jml_kolom_wewenang'])->name('Wewenang.jml_kolom');
+Route::post('admin/wewenang/save', [menuTigaController::class, 'saveWewenang'])->name('Wewenang.save');
+Route::get('admin/wewenang/{id}/edit', [menuTigaController::class, 'editWewenang'])->name('Wewenang.edit');
+Route::put('admin/wewenang/{id}/update', [menuTigaController::class, 'updateWewenang'])->name('Wewenang.update');
+Route::get('admin/wewenang/{id}/hapus', [menuTigaController::class, 'hapusWewenang'])->name('Wewenang.hapus');
+
+// Route Menu Korelasi Jabatan
+Route::get('admin/korelasi-jabatan', [menuTigaController::class, 'indexKorelasiJabatan'])->name('KorelasiJabatan.index');
+Route::get('admin/korelasi-jabatan/add', [menuTigaController::class, 'addKorelasiJabatan'])->name('KorelasiJabatan.add');
+Route::post('admin/korelasi-jabatan/jumlah_kolom', [menuTigaController::class, 'jml_kolom_korelasi'])->name('KorelasiJabatan.jml_kolom');
+Route::post('admin/korelasi-jabatan/save', [menuTigaController::class, 'saveKorelasiJabatan'])->name('KorelasiJabatan.save');
+Route::get('admin/korelasi-jabatan/{id}/edit', [menuTigaController::class, 'editKorelasiJabatan'])->name('KorelasiJabatan.edit');
+Route::put('admin/korelasi-jabatan/{id}/update', [menuTigaController::class, 'updateKorelasiJabatan'])->name('KorelasiJabatan.update');
+Route::get('admin/korelasi-jabatan/{id}/hapus', [menuTigaController::class, 'hapusKorelasiJabatan'])->name('KorelasiJabatan.hapus');
+
+// Route Menu Kondisi Lingkungan Kerja
+Route::get('admin/kondisi-lingkungan-kerja', [menuTigaController::class, 'indexKondisiLingkunganKerja'])->name('KondisiLingkunganKerja.index');
+Route::get('admin/kondisi-lingkungan-kerja/add', [menuTigaController::class, 'addKondisiLingkunganKerja'])->name('KondisiLingkunganKerja.add');
+Route::post('admin/kondisi-lingkungan-kerja/jumlah_kolom', [menuTigaController::class, 'jml_kolom_kondisi_lingkungan_kerja'])->name('KondisiLingkunganKerja.jml_kolom');
+Route::post('admin/kondisi-lingkungan-kerja/save', [menuTigaController::class, 'saveKondisiLingkunganKerja'])->name('KondisiLingkunganKerja.save');
+Route::get('admin/kondisi-lingkungan-kerja/{id}/edit', [menuTigaController::class, 'editKondisiLingkunganKerja'])->name('KondisiLingkunganKerja.edit');
+Route::put('admin/kondisi-lingkungan-kerja/{id}/update', [menuTigaController::class, 'updateKondisiLingkunganKerja'])->name('KondisiLingkunganKerja.update');
+Route::get('admin/kondisi-lingkungan-kerja/{id}/hapus', [menuTigaController::class, 'hapusKondisiLingkunganKerja'])->name('KondisiLingkunganKerja.hapus');
+
+// Route Menu Resiko Bahaya
+Route::get('admin/resiko-bahaya', [menuTigaController::class, 'indexResikoBahaya'])->name('ResikoBahaya.index');
+Route::get('admin/resiko-bahaya/add', [menuTigaController::class, 'addResikoBahaya'])->name('ResikoBahaya.add');
+Route::post('admin/resiko-bahaya/jumlah_kolom', [menuTigaController::class, 'jml_kolom_resiko_bahaya'])->name('ResikoBahaya.jml_kolom');
+Route::post('admin/resiko-bahaya/save', [menuTigaController::class, 'saveResikoBahaya'])->name('ResikoBahaya.save');
+Route::get('admin/resiko-bahaya/{id}/edit', [menuTigaController::class, 'editResikoBahaya'])->name('ResikoBahaya.edit');
+Route::put('admin/resiko-bahaya/{id}/update', [menuTigaController::class, 'updateResikoBahaya'])->name('ResikoBahaya.update');
+Route::get('admin/resiko-bahaya/{id}/hapus', [menuTigaController::class, 'hapusResikoBahaya'])->name('ResikoBahaya.hapus');

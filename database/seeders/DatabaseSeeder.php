@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
             BahanKerjaSeeder::class,
             PerangkatKerjaSeeder::class,
             TanggungJawabSeeder::class,
+            KondisiLingkunganKerjaSeeder::class,
+            ResikoBahayaSeeder::class,
         ]);
     }
 }

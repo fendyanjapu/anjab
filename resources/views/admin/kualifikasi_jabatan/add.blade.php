@@ -47,7 +47,7 @@
             </div>
             <center>
               <button type="submit" class="btn btn-primary mr-2">Simpan</button>
-              <a href="#" class="btn btn-light" onclick="self.history.back()">Batal</a>
+              <a href="{{ route('kualifikasi.index') }}" class="btn btn-light" onclick="self.history.back()">Batal</a>
             </center>
           </form>
       </div>

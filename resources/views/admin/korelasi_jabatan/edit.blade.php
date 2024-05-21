@@ -1,10 +1,11 @@
 @extends('admin.template')
 @section('isi')
+
 <center>
   <div class="col-md-7">
     <div class="card-body">
       <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
-        Perangkat Kerja</button>
+        Korelasi Jabatan</button>
         <br><br>
     </div>
   </div>
@@ -14,7 +15,7 @@ style="position: relative;margin: auto;left:0;right:0;top:0; bottom:0;">
   <div class="card">
     <div class="card-body">
         <form class="forms-sample" method="post"
-        action="{{ route('perangkatKerja.update', $data->id) }}">
+        action="{{ route('KorelasiJabatan.update', $data->id) }}">
         @csrf
         @method('PUT')
             <input type="hidden" name="id" value="{{ $data->id }}">
@@ -24,7 +25,7 @@ style="position: relative;margin: auto;left:0;right:0;top:0; bottom:0;">
                 <select class="js-example-basic-single w-100" name="id_jabatan_sopd">
                   <option value=""></option>
                   @foreach ($jsopd as $item)
-                  <option value="{{ $item->id }}"  {{ $item->id == $data->id_jabatan_sopd ? 'selected' : '' }}>
+                  <option value="{{ $item->id }}" {{ $item->id == $data->id_jabatan_sopd ? 'selected' : '' }}>
                           {{ $item->jabatan_nama }}
                           @if ($item->atasan_id)
                               | atasan: {{ $item->atasan_nama }}
@@ -33,23 +34,26 @@ style="position: relative;margin: auto;left:0;right:0;top:0; bottom:0;">
                   @endforeach
                 </select>
               </div>
-              <label class="col-sm-3 col-form-label">Perangkat Kerja</label>
+              <label class="col-sm-3 col-form-label">Nama Jabatan</label>
               <div class="col-sm-9">
-                <input type="text" name="perangkat_kerja"
-                value="{{ $data->perangkat_kerja }}"class="form-control">
+                <input type="text" name="nm_jabatan" value="{{ $data->nm_jabatan }}"class="form-control">
               </div>
-              <label class="col-sm-3 col-form-label">Penggunaan Untuk Tugas</label>
+              <label class="col-sm-3 col-form-label">Unit Kerja/Instansi</label>
               <div class="col-sm-9">
-                <input type="text" name="penggunaan_untuk_tugas"
-                value="{{ $data->penggunaan_untuk_tugas }}"class="form-control">
+                <input type="text" name="unit_kerja_instansi" value="{{ $data->unit_kerja_instansi }}"class="form-control">
+              </div>
+              <label class="col-sm-3 col-form-label">Dalam Hal</label>
+              <div class="col-sm-9">
+                <input type="text" name="dalam_hal" value="{{ $data->dalam_hal }}"class="form-control">
               </div>
             </div>
           <center>
             <button type="submit" class="btn btn-primary mr-2">Simpan</button>
-            <a href="{{ route('perangkatKerja.index') }}" class="btn btn-light" onclick="self.history.back()">Batal</a>
+            <a href="{{ route('KorelasiJabatan.index') }}" class="btn btn-light" onclick="self.history.back()">Batal</a>
           </center>
         </form>
     </div>
   </div>
 </div>
+
 @endsection

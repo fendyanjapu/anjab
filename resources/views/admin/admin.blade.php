@@ -149,7 +149,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('Wewenang.index') }}" class="faqs">
                     <i class="fas fa-3x fa-user-circle text-primary mb-2"></i>
                     <div class="text-tot">Wewenang</div>
                     <p class="text-muted mb-0"></p>
@@ -158,7 +158,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('KorelasiJabatan.index') }}" class="faqs">
                     <i class="fas fa-3x fa-handshake text-primary mb-2"></i>
                     <div class="text-tot">Korelasi Jabatan</div>
                     <p class="text-muted mb-0"></p>
@@ -167,7 +167,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('KondisiLingkunganKerja.index') }}" class="faqs">
                     <i class="fas fa-3x fa-home text-primary mb-2"></i>
                     <div class="text-tot">Kondisi Lingkungan Kerja</div>
                     <p class="text-muted mb-0"></p>
@@ -176,9 +176,9 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('ResikoBahaya.index') }}" class="faqs">
                     <i class="fas fa-3x fa-exclamation-triangle text-primary mb-2"></i>
-                    <div class="text-tot">Risiko Bahaya</div>
+                    <div class="text-tot">Resiko Bahaya</div>
                     <p class="text-muted mb-0"></p>
                     </a>
                   </div>
