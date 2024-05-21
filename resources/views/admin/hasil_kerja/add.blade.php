@@ -20,7 +20,7 @@
                     var jumlah = response.result;
 
                     for (var i = 0; i < jumlah; i++) {
-                        html += '<div class="form-group row">' +
+                        html += '<div class="form-group row border-bottom">' +
                             '<label class="col-sm-3 col-form-label">Hasil Kerja ' + '</label>' +
                             '<div class="col-sm-9">' +
                                 '<input type="text" name="hasil[]' + '" class="form-control" value="">' +

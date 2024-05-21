@@ -84,3 +84,21 @@ Route::post('admin/bahan-kerja/save', [menuDuaController::class, 'saveBahanKerja
 Route::get('admin/bahan-kerja/{id}/edit', [menuDuaController::class, 'editBahanKerja'])->name('bahanKerja.edit');
 Route::put('admin/bahan-kerja/{id}/update', [menuDuaController::class, 'updateBahanKerja'])->name('bahanKerja.update');
 Route::get('admin/bahan-kerja/{id}/hapus', [menuDuaController::class, 'hapusBahanKerja'])->name('bahanKerja.hapus');
+
+// Route Menu Perangkat Kerja
+Route::get('admin/perangkat-kerja', [menuDuaController::class, 'indexPerangkatKerja'])->name('perangkatKerja.index');
+Route::post('admin/perangkat-kerja/jumlah_kolom', [menuDuaController::class, 'jml_kolom_bahan_kerja'])->name('perangkatKerja.jml_kolom');
+Route::get('admin/perangkat-kerja/add', [menuDuaController::class, 'addPerangkatKerja'])->name('perangkatKerja.add');
+Route::post('admin/perangkat-kerja/save', [menuDuaController::class, 'savePerangkatKerja'])->name('perangkatKerja.save');
+Route::get('admin/perangkat-kerja/{id}/edit', [menuDuaController::class, 'editPerangkatKerja'])->name('perangkatKerja.edit');
+Route::put('admin/perangkat-kerja/{id}/update', [menuDuaController::class, 'updatePerangkatKerja'])->name('perangkatKerja.update');
+Route::get('admin/perangkat-kerja/{id}/hapus', [menuDuaController::class, 'hapusPerangkatKerja'])->name('perangkatKerja.hapus');
+
+// Route Menu Tanggung Jawab
+Route::get('admin/tanggung-jawab', [menuDuaController::class, 'indexTanggungJawab'])->name('tanggungJawab.index');
+Route::get('admin/tanggung-jawab/add', [menuDuaController::class, 'addTanggungJawab'])->name('tanggungJawab.add');
+Route::post('admin/tanggung-jawab/jumlah_kolom', [menuDuaController::class, 'jml_kolom_tanggung_jawab'])->name('tanggungJawab.jml_kolom');
+Route::post('admin/tanggung-jawab/save', [menuDuaController::class, 'saveTanggungJawab'])->name('tanggungJawab.save');
+Route::get('admin/tanggung-jawab/{id}/edit', [menuDuaController::class, 'editTanggungJawab'])->name('tanggungJawab.edit');
+Route::put('admin/tanggung-jawab/{id}/update', [menuDuaController::class, 'updateTanggungJawab'])->name('tanggungJawab.update');
+Route::get('admin/tanggung-jawab/{id}/hapus', [menuDuaController::class, 'hapusTanggungJawab'])->name('tanggungJawab.hapus');

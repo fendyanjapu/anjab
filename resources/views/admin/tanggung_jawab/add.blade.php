@@ -1,16 +1,16 @@
 @extends('admin.template')
 @section('isi')
-<script>
 
+<script>
 	$(document).ready(function(){
-		$('#jumlah_kolom').on('change',function(){
-			var jml = $('#jumlah_kolom').val();
+		$('#jumlah_kolom').change(function(){
+            var jml = $('#jumlah_kolom').val();
 			$.ajax({
 				type   : "POST",
-				url    : '/admin/hasil-kerja/jumlah_kolom',
+				url    : "/admin/tanggung-jawab/jumlah_kolom",
 				data   : {
-                    '_token': '{{ csrf_token() }}',
-                    'jml': jml
+                    '_token' : '{{ csrf_token() }}',
+                    'jml' : jml
                 },
                 dataType: 'json',
 				cache  : false,
@@ -20,16 +20,16 @@
                     var jumlah = response.result;
 
                     for (var i = 0; i < jumlah; i++) {
-                        html += '<div class="form-group row">' +
-                            '<label class="col-sm-3 col-form-label">Hasil Kerja ' + '</label>' +
+                        html += '<div class="form-group row border-bottom">' +
+                            '<label class="col-sm-3 col-form-label">Uraian ' + '</label>' +
                             '<div class="col-sm-9">' +
-                                '<input type="text" name="hasil[]' + '" class="form-control" value="">' +
+                                '<input type="text" name="uraian[]' + '" class="form-control" value="">' +
                             '</div>' +
                         '</div>';
                     }
 
                     $('#kolom').html(html);
-                }
+				}
 			});
 		});
 	});
@@ -38,7 +38,7 @@
   <div class="col-md-7">
     <div class="card-body">
       <button type="button" class="btn btn-outline-inverse-info btn-icon-text">
-        Hasil Kerja</button>
+        Tanggung Jawab</button>
         <br><br>
     </div>
   </div>
@@ -48,7 +48,7 @@ style="position: relative;margin: auto;left:0;right:0;top:0; bottom:0;">
   <div class="card">
     <div class="card-body">
         <form class="forms-sample" method="post"
-        action="{{ route('hasilKerja.save') }}">
+        action="{{ route('tanggungJawab.save') }}">
         @csrf
           <div class="form-group row">
             <label class="col-sm-3 col-form-label">Jabatan</label>
@@ -77,24 +77,15 @@ style="position: relative;margin: auto;left:0;right:0;top:0; bottom:0;">
                 <option value="7">7</option>
                 <option value="8">8</option>
                 <option value="9">9</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
+                <option value="10">10</option>
               </select>
             </div>
           </div>
           <div id="kolom">
             <div class="form-group row">
-              <label class="col-sm-3 col-form-label">Hasil Kerja</label>
+              <label class="col-sm-3 col-form-label">Uraian</label>
               <div class="col-sm-9">
-                <input type="text" name="hasil" class="form-control">
+                <input type="text" name="uraian" class="form-control">
               </div>
             </div>
           </div>

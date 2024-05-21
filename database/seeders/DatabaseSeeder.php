@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
             TugasPokokSeeder::class,
             HasilKerjaSeeder::class,
             BahanKerjaSeeder::class,
+            PerangkatKerjaSeeder::class,
+            TanggungJawabSeeder::class,
         ]);
     }
 }

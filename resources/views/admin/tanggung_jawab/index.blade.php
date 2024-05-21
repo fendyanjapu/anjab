@@ -10,16 +10,16 @@
   <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Hasil Kerja</h4>
-        <a href="{{ route('hasilKerja.add') }}" class="btn btn-primary btn-rounded btn-fw">Tambah</a><br><br>
+        <h4 class="card-title">Tanggung Jawab</h4>
+        <a href="{{ route('tanggungJawab.add') }}" class="btn btn-primary btn-rounded btn-fw">Tambah</a><br><br>
         <div class="table-responsive">
           <table class="table" id="myTable">
             <thead>
               <tr>
                 <th style="text-align:center">NO</th>
-								<th>Jabatan</th>
-								<th>Atasan</th>
-                <th>Hasil Kerja</th>
+                <th>Jabatan</th>
+                <th>Atasan</th>
+                <th>Uraian</th>
                 <th></th>
               </tr>
             </thead>
@@ -31,11 +31,11 @@
                   <td>
                         {{ $item->atasan_nama }}
                   </td>
-                  <td>{{ $item->hasil }}</td>
+                  <td>{{ $item->uraian }}</td>
                   <td>
-                    <a href="{{ route('hasilKerja.edit', $item->id) }}"
+                    <a href="{{ route('tanggungJawab.edit', $item->id) }}"
 											class="btn btn-inverse-success btn-fw">Edit</a>
-                    <a href="{{ route('hasilKerja.hapus', $item->id) }}"
+                    <a href="{{ route('tanggungJawab.hapus', $item->id) }}"
 											class="btn btn-inverse-danger btn-fw"
 											onclick="return confirm('Hapus Data?')">Hapus</a>
                   </td>

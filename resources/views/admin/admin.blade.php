@@ -131,7 +131,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('perangkatKerja.index') }}" class="faqs">
                     <i class="fas fa-3x fa-laptop text-primary mb-2"></i>
                     <div class="text-tot">Perangkat Kerja</div>
                     <p class="text-muted mb-0"></p>
@@ -140,7 +140,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('tanggungJawab.index') }}" class="faqs">
                     <i class="fas fa-3x fa-sitemap text-primary mb-2"></i>
                     <div class="text-tot">Tanggung Jawab</div>
                     <p class="text-muted mb-0"></p>

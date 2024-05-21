@@ -25,7 +25,7 @@
                                 '<input type="text" name="bahan_kerja[]' + '" class="form-control" value="">' +
                             '</div>' +
                         '</div>';
-                        html += '<div class="form-group row">' +
+                        html += '<div class="form-group row border-bottom">' +
                             '<label class="col-sm-3 col-form-label">Pengguanaan Dalam Tugas ' + '</label>' +
                             '<div class="col-sm-9">' +
                                 '<input type="text" name="penggunaan_dalam_tugas[]' + '" class="form-control" value="">' +
