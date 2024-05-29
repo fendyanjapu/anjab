@@ -24,8 +24,12 @@ class DatabaseSeeder extends Seeder
             BahanKerjaSeeder::class,
             PerangkatKerjaSeeder::class,
             TanggungJawabSeeder::class,
+            WewenangSeeder::class,
+            KorelasiJabatanSeeder::class,
             KondisiLingkunganKerjaSeeder::class,
             ResikoBahayaSeeder::class,
+            SyaratJabatanSeeder::class,
+            PrestasiKerjaYangDiharapkanSeeder::class,
         ]);
     }
 }

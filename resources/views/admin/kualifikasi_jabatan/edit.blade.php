@@ -21,7 +21,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Jabatan</label>
                 <div class="col-sm-9">
-                  <select class="js-example-basic-single w-100" name="id_jabatan_sopd">
+                  <select class="js-example-basic-single w-100" name="id_jabatan_sopd" class="form-control">
                     <option value=""></option>
                     @foreach ($jsopd as $item)
                     <option value="{{ $item->id }}" {{ $item->id == $data->id_jabatan_sopd ? 'selected' : '' }}>{{ $item->jabatan_nama }}

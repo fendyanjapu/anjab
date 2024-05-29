@@ -19,7 +19,7 @@ style="position: relative;margin: auto;left:0;right:0;top:0; bottom:0;">
           <div class="form-group row">
             <label class="col-sm-3 col-form-label">Jabatan</label>
             <div class="col-sm-9">
-              <select class="js-example-basic-single w-100" name="id_jabatan" required>
+              <select class="js-example-basic-single w-100" name="id_jabatan" class="form-control">
                 <option value=""></option>
                 @foreach ($jabatan as $item)
                     <option value="{{ $item->id_jabatan }}">{{ $item->nama_jabatan }}</option>

@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\adminController;
-use App\Http\Controllers\menuSatuController;
 use App\Http\Controllers\menuDuaController;
+use App\Http\Controllers\menuSatuController;
 use App\Http\Controllers\menuTigaController;
+use App\Http\Controllers\menuEmpatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -139,3 +140,27 @@ Route::post('admin/resiko-bahaya/save', [menuTigaController::class, 'saveResikoB
 Route::get('admin/resiko-bahaya/{id}/edit', [menuTigaController::class, 'editResikoBahaya'])->name('ResikoBahaya.edit');
 Route::put('admin/resiko-bahaya/{id}/update', [menuTigaController::class, 'updateResikoBahaya'])->name('ResikoBahaya.update');
 Route::get('admin/resiko-bahaya/{id}/hapus', [menuTigaController::class, 'hapusResikoBahaya'])->name('ResikoBahaya.hapus');
+
+// Route Menu Syarat Jabatan
+Route::get('admin/syarat-jabatan', [menuEmpatController::class, 'indexSyaratJabatan'])->name('SyaratJabatan.index');
+Route::get('admin/syarat-jabatan/add', [menuEmpatController::class, 'addSyaratJabatan'])->name('SyaratJabatan.add');
+Route::post('admin/syarat-jabatan/save', [menuEmpatController::class, 'saveSyaratJabatan'])->name('SyaratJabatan.save');
+Route::get('admin/syarat-jabatan/{id}/edit', [menuEmpatController::class, 'editSyaratJabatan'])->name('SyaratJabatan.edit');
+Route::put('admin/syarat-jabatan/{id}/update', [menuEmpatController::class, 'updateSyaratJabatan'])->name('SyaratJabatan.update');
+Route::get('admin/syarat-jabatan/{id}/hapus', [menuEmpatController::class, 'hapusSyaratJabatan'])->name('SyaratJabatan.hapus');
+
+// Route Menu Prestasi Jabatan
+Route::get('admin/prestasi-kerja-yang-diharapkan', [menuEmpatController::class, 'indexPrestasiKerja'])->name('PrestasiKerja.index');
+Route::get('admin/prestasi-kerja-yang-diharapkan/add', [menuEmpatController::class, 'addPrestasiKerja'])->name('PrestasiKerja.add');
+Route::post('admin/prestasi-kerja-yang-diharapkan/save', [menuEmpatController::class, 'savePrestasiKerja'])->name('PrestasiKerja.save');
+Route::get('admin/prestasi-kerja-yang-diharapkan/{id}/edit', [menuEmpatController::class, 'editPrestasiKerja'])->name('PrestasiKerja.edit');
+Route::put('admin/prestasi-kerja-yang-diharapkan/{id}/update', [menuEmpatController::class, 'updatePrestasiKerja'])->name('PrestasiKerja.update');
+Route::get('admin/prestasi-kerja-yang-diharapkan/{id}/hapus', [menuEmpatController::class, 'hapusPrestasiKerja'])->name('PrestasiKerja.hapus');
+
+// Route Menu Kelas Jabatan
+Route::get('admin/kelas-jabatan', [menuEmpatController::class, 'IndexKelasJabatan'])->name('KelasJabatan.index');
+
+// Route Menu Pengaturan
+Route::get('admin/pengaturan', [menuEmpatController::class, 'IndexResetPassword'])->name('ResetPassword');
+Route::post('admin/pengaturan/reset-password', [menuEmpatController::class, 'Ubah_Password'])->name('UpdatePassword');
+

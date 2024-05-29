@@ -185,7 +185,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('SyaratJabatan.index') }}" class="faqs">
                     <i class="fas fa-3x fa-check text-primary mb-2"></i>
                     <div class="text-tot">Syarat Jabatan</div>
                     <p class="text-muted mb-0"></p>
@@ -194,7 +194,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('PrestasiKerja.index') }}" class="faqs">
                     <i class="fas fa-3x fa-trophy text-primary mb-2"></i>
                     <div class="text-tot">Prestasi Kerja</div>
                     <p class="text-muted mb-0"></p>
@@ -203,7 +203,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('KelasJabatan.index') }}" class="faqs">
                     <i class="fas fa-3x fa-list-ol text-primary mb-2"></i>
                     <div class="text-tot">Kelas Jabatan</div>
                     <p class="text-muted mb-0"></p>
@@ -212,7 +212,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                   <div class="mt-5">
-                    <a href="#" class="faqs">
+                    <a href="{{ route('ResetPassword') }}" class="faqs">
                     <i class="fas fa-3x fa-gear text-primary mb-2"></i>
                     <div class="text-tot">Pengaturan</div>
                     <p class="text-muted mb-0"></p>
