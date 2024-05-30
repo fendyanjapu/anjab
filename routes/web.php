@@ -32,7 +32,17 @@ Route::post('/cari', [homeController::class,'cari']);
 // Route Middleware login
 Route::group(['middleware' => 'ceklog'], function () {
     Route::get('/admin', [adminController::class,'index'])->name('admin');
-});
+
+// Route Menu jabatan Level 0
+Route::get('jabatan_sopd', [homeController::class, 'indexJabatanLevelSatu'])->name('jabatan_sopd.index');
+Route::get('jabatan_sopd/add', [homeController::class, 'addJabatanLevelSatu'])->name('jabatan_sopd.add');
+Route::post('jabatan_sopd/save', [homeController::class, 'saveJabatanLevelSatu'])->name('jabatan_sopd.save');
+Route::get('jabatan_sopd/{id}/edit', [homeController::class, 'editJabatanLevelSatu'])->name('jabatan_sopd.edit');
+Route::put('jabatan_sopd/{id}/update', [homeController::class, 'updateJabatanLevelSatu'])->name('jabatan_sopd.update');
+Route::delete('jabatan_sopd/{id}/hapus', [homeController::class, 'deleteJabatanLevelSatu'])->name('jabatan_sopd.hapus');
+// Route Menu jabatan Level 0
+
+
 
 // Route Menu Jabatan
 Route::get('admin/jabatan_sopd', [menuSatuController::class, 'indexJabatan'])->name('jabatan.index');
@@ -164,3 +174,4 @@ Route::get('admin/kelas-jabatan', [menuEmpatController::class, 'IndexKelasJabata
 Route::get('admin/pengaturan', [menuEmpatController::class, 'IndexResetPassword'])->name('ResetPassword');
 Route::post('admin/pengaturan/reset-password', [menuEmpatController::class, 'Ubah_Password'])->name('UpdatePassword');
 
+});

@@ -29,7 +29,7 @@
 
   <!-- Masthead -->
   <header class="masthead page-section" id="beranda">
-  <div class="nav-cont"><div class="nav-top nav-jew"><a class="nav-top1" href="/"><i class="fa fa-info-circle" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> PERTANYAAN</a><a class="nav-top3 nav-top5" href="{{ route('home')}}" ><i class="fa fa-long-arrow-left" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> KEMBALI KE HOMEPAGE</a></div></div>
+  <div class="nav-cont"><div class="nav-top nav-jew"><a class="nav-top1" href="#"><i class="fa fa-info-circle" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> PERTANYAAN</a><a class="nav-top3 nav-top5" href="{{ route('home')}}" ><i class="fa fa-long-arrow-left" style="font-size:20px;margin-right:3px;" aria-hidden="true"></i> KEMBALI KE HOMEPAGE</a></div></div>
     <div class="container h-100">
       <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-10 align-self-end">

@@ -64,13 +64,14 @@
                      <div class="row">
                <div class="col-lg-3 col-md-6 text-center">
                  <div class="mt-5">
-                   <a href={{ route('jabatan.index') }}" class="faqs">
+                   <a href="{{ route('jabatan_sopd.index') }}" class="faqs">
                    <i class="fas fa-3x fa-users text-primary mb-2"></i>
                    <div class="text-tot">Jabatan</div>
                    <p class="text-muted mb-0"></p>
                    </a>
                  </div>
                </div>
+
               <?php else: ?>
                 <div class="row h-100 align-items-center justify-content-center text-center">
                    <div class="container">
