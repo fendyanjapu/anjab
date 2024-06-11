@@ -496,7 +496,7 @@ class menuSatuController extends Controller
             return view('admin.tugas_pokok.add_excel', compact('jsopd'));
         }
         public function TugasPokokDownload(){
-            return response()->download(public_path('asset/doc/Example.xlsx'));
+            return response()->download(public_path('asset/doc/contoh_excel.xlsx'));
         }
         public function TugasPokokSaveExcel(Request $request){
 
