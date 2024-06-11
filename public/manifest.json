@@ -1,0 +1,17 @@
+{
+    "name": "ANALISIS JABATAN KABUPATEN BARITO KUALA",
+    "short_name": "ANJAB",
+    "start_url": "/index.php",
+    "background_color": "#6777ef",
+    "description": "ANALISIS JABATAN KABUPATEN BARITO KUALA",
+    "display": "fullscreen",
+    "theme_color": "#6777ef",
+    "icons": [
+        {
+            "src": "logo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

@@ -42,7 +42,7 @@
                     <td>{{ $item->jumlah_hasil }}</td>
                     <td>{{ $item->waktu_penyelesaian_jam }}</td>
                     <td>{{ $item->waktu_efektif }}</td>
-                    <td>{{ $item->kebutuhan_pegawai }}</td>
+                    <td>{{ number_format($item->kebutuhan_pegawai,4) }}</td>
                     <td>
                         <a href="{{ route('tugasPokok.edit', $item->id) }}"
                                                 class="btn btn-inverse-success btn-fw">Edit</a>

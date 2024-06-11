@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+  <meta name="theme-color" content="#6777ef"/>
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>Beranda - ANJAB Barito Kuala</title>
 
   <!-- Font Awesome Icons -->
@@ -16,6 +17,10 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+   <!-- PWA  -->
+   <link rel="apple-touch-icon" href="{{ asset('logo.png') }}">
+   <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
   <!-- Plugin CSS -->
   <link href="{{ asset('asset') }}/assets/css/magnific-popup.css" rel="stylesheet">
@@ -233,6 +238,23 @@
     </div>
   </footer>
 
+  <script src="{{ asset('/sw.js') }}"></script>
+    <script>
+    if ("serviceWorker" in navigator) {
+        // Register a service worker hosted at the root of the
+        // site using the default scope.
+        navigator.serviceWorker.register("/sw.js").then(
+        (registration) => {
+            console.log("Service worker registration succeeded:", registration);
+        },
+        (error) => {
+            console.error(`Service worker registration failed: ${error}`);
+        },
+        );
+    } else {
+        console.error("Service workers are not supported.");
+    }
+    </script>
   <!-- Bootstrap core JavaScript -->
   <script src="{{ asset('asset') }}/assets/js/jquery.min.js"></script>
   <script src="{{ asset('asset') }}/assets/js/bootstrap.bundle.min.js"></script>

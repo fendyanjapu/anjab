@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\JabatanSopd;
+use Alert;
 use App\Models\Jabatan;
+use App\Models\JabatanSopd;
+use App\Models\Tugas_pokok;
+use Illuminate\Http\Request;
 use App\Models\iktisar_jabatan;
 use App\Models\kualifikasi_jabatan;
-use App\Models\Tugas_pokok;
 
-
-use Alert;
+use App\Imports\TugasPokok;
+use Maatwebsite\Excel\Facades\Excel;
 
 class menuSatuController extends Controller
 {
@@ -474,6 +475,7 @@ class menuSatuController extends Controller
             return redirect()->route('tugasPokok.index');
 
         }
+
         public function TugasPokokExcel(){
 
              // sesuai id_sopd session
@@ -494,10 +496,20 @@ class menuSatuController extends Controller
             return view('admin.tugas_pokok.add_excel', compact('jsopd'));
         }
         public function TugasPokokDownload(){
-
+            return response()->download(public_path('asset/doc/Example.xlsx'));
         }
-        public function TugasPokokSaveExcel(){
+        public function TugasPokokSaveExcel(Request $request){
 
+            $file = $request->file('file');
+            $namafile = $file->getClientOriginalName();
+            $file->move('asset/', $namafile);
+            $save = Excel::import(new TugasPokok, public_path('/asset/'.$namafile));
+
+            if($save == true){
+                return redirect()->route('tugasPokok.index');
+            }else{
+                return redirect()->back();
+            }
         }
     //  end menu Tugas Pokok
 }

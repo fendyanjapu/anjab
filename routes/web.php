@@ -28,7 +28,7 @@ Route::get('logout', [homeController::class,'logout'])->name('logout');
 // Route Select & Search Filter
 Route::post('/jabatan', [homeController::class,'jabatan'])->name('jabatan');
 Route::post('/cari', [homeController::class,'cari']);
-
+route::get('/informasi-jabatan/{id}', [homeController::class, 'informasi_jabatan'])->name('info_jabatan');
 // Route Middleware login
 Route::group(['middleware' => 'ceklog'], function () {
     Route::get('/admin', [adminController::class,'index'])->name('admin');
@@ -77,7 +77,7 @@ Route::put('admin/tugas-pokok/{id}/update', [menuSatuController::class, 'updateT
 Route::get('admin/tugas-pokok/{id}/hapus', [menuSatuController::class, 'hapusTugasPokok'])->name('tugasPokok.hapus');
 Route::get('admin/tugas-pokok/Excel', [menuSatuController::class, 'TugasPokokExcel'])->name('tugasPokok.excel');
 Route::get('admin/tugas-pokok/download', [menuSatuController::class, 'TugasPokokDownload'])->name('tugasPokok.download');
-Route::get('admin/tugas-pokok/save-excel', [menuSatuController::class, 'TugasPokokSaveExcel'])->name('tugasPokok.saveExcel');
+Route::post('admin/tugas-pokok/save-excel', [menuSatuController::class, 'TugasPokokSaveExcel'])->name('tugasPokok.saveExcel');
 
 // Route Menu Hasil Kerja
 Route::get('admin/hasil-kerja', [menuDuaController::class, 'indexHasilKerja'])->name('hasilKerja.index');

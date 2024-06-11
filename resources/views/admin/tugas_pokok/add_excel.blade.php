@@ -23,6 +23,7 @@ style="position: relative;margin: auto;left:0;right:0;top:0; bottom:0;">
 			<br>
       <form class="forms-sample" method="post" enctype="multipart/form-data"
         action="{{ route('tugasPokok.saveExcel') }}">
+        @csrf
           <div class="form-group row">
             <label class="col-sm-3 col-form-label">Jabatan</label>
             <div class="col-sm-9">

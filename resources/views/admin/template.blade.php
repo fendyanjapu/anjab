@@ -4,10 +4,20 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#6777ef"/>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Analisa Jabatan</title>
     <!-- base:css -->
     <link rel="stylesheet" href="{{ asset('asset') }}/assets_admin/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="{{ asset('asset') }}/assets_admin/vendors/base/vendor.bundle.base.css">
+
+
+   <!-- PWA  -->
+   <link rel="apple-touch-icon" href="{{ asset('logo.png') }}">
+   <link rel="manifest" href="{{ asset('/manifest.json') }}">
+
     <!-- endinject -->
     <!-- plugin css for this page -->
     <link rel="stylesheet" href="{{ asset('asset') }}/assets_admin/vendors/select2/select2.min.css">
@@ -86,6 +96,25 @@
     <!-- Plugin js for this page-->
     <!-- End plugin js for this page-->
     <!-- inject:js -->
+
+    <script src="{{ asset('/sw.js') }}"></script>
+    <script>
+    if ("serviceWorker" in navigator) {
+        // Register a service worker hosted at the root of the
+        // site using the default scope.
+        navigator.serviceWorker.register("/sw.js").then(
+        (registration) => {
+            console.log("Service worker registration succeeded:", registration);
+        },
+        (error) => {
+            console.error(`Service worker registration failed: ${error}`);
+        },
+        );
+    } else {
+        console.error("Service workers are not supported.");
+    }
+    </script>
+
     <script src="{{ asset('asset') }}/assets_admin/js/template.js"></script>
     <!-- endinject -->
     <!-- plugin js for this page -->
@@ -96,6 +125,9 @@
     <script src="{{ asset('asset') }}/assets_admin/js/file-upload.js"></script>
     <script src="{{ asset('asset') }}/assets_admin/js/typeahead.js"></script>
     <script src="{{ asset('asset') }}/assets_admin/js/select2.js"></script>
+
+
+
     <!-- End custom js for this page-->
   </body>
 </html>
