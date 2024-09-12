@@ -306,13 +306,13 @@ class menuTigaController extends Controller
 
             // list semua data
             $data = Kondisi_lingkungan_kerja::where('id_sopd', $id_sopd)
-            ->leftJoin('jabatan_sopds', 'jabatan_sopds.id', '=', 'Kondisi_lingkungan_kerjas.id_jabatan_sopd')
+            ->leftJoin('jabatan_sopds', 'jabatan_sopds.id', '=', 'kondisi_lingkungan_kerjas.id_jabatan_sopd')
             ->leftJoin('jabatans', 'jabatans.id_jabatan', '=', 'jabatan_sopds.id_jabatan')
             ->leftJoin('jabatans as atasan', 'atasan.id_jabatan', '=', 'jabatan_sopds.atasan')
             ->select(
-                'Kondisi_lingkungan_kerjas.id as id',
-                'Kondisi_lingkungan_kerjas.aspek as aspek',
-                'Kondisi_lingkungan_kerjas.faktor as faktor',
+                'kondisi_lingkungan_kerjas.id as id',
+                'kondisi_lingkungan_kerjas.aspek as aspek',
+                'kondisi_lingkungan_kerjas.faktor as faktor',
                 'jabatans.id_jabatan as jabatan_id',
                 'jabatans.nama_jabatan as jabatan_nama',
                 'atasan.id_jabatan as atasan_id',

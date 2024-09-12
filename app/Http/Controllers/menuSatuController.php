@@ -8,7 +8,7 @@ use App\Models\JabatanSopd;
 use App\Models\Tugas_pokok;
 use Illuminate\Http\Request;
 use App\Models\iktisar_jabatan;
-use App\Models\kualifikasi_jabatan;
+use App\Models\Kualifikasi_jabatan;
 
 use App\Imports\TugasPokok;
 use Maatwebsite\Excel\Facades\Excel;
@@ -224,7 +224,7 @@ class menuSatuController extends Controller
                 $id_sopd = session('id_sopd');
 
                 // list semua data
-                $data = kualifikasi_jabatan::where('id_sopd', $id_sopd)
+                $data = Kualifikasi_jabatan::where('id_sopd', $id_sopd)
                 ->leftJoin('jabatan_sopds', 'jabatan_sopds.id', '=', 'kualifikasi_jabatans.id_jabatan_sopd')
                 ->leftJoin('jabatans', 'jabatans.id_jabatan', '=', 'jabatan_sopds.id_jabatan')
                 ->leftJoin('jabatans as atasan', 'atasan.id_jabatan', '=', 'jabatan_sopds.atasan')

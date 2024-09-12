@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Sopd;
 use App\Models\Syarat_jabatan;
-use App\Models\jabatanSopd;
+use App\Models\JabatanSopd;
 use App\Models\Prestasi_kerja_yang_diharapkan;
 
 use Alert;
@@ -41,7 +41,7 @@ class menuEmpatController extends Controller
             $id_sopd = session('id_sopd');
 
             // list semua data
-            $data = jabatanSopd::where('id_sopd', $id_sopd)
+            $data = JabatanSopd::where('id_sopd', $id_sopd)
             ->leftJoin('jabatans', 'jabatans.id_jabatan', '=', 'jabatan_sopds.id_jabatan')
             ->leftJoin('jabatans as atasan', 'atasan.id_jabatan', '=', 'jabatan_sopds.atasan')
             ->select(
@@ -49,7 +49,7 @@ class menuEmpatController extends Controller
                 'jabatans.id_jabatan as jabatan_id',
                 'jabatans.nama_jabatan as jabatan_nama',
                 'atasan.id_jabatan as atasan_id',
-                'atasan.nama_jabatan as atasan_nama',
+                'atasan.nama_jabatan as atasan_nama'
             )
             ->orderBy('jabatans.nama_jabatan', 'ASC')
             ->get();
@@ -119,7 +119,7 @@ class menuEmpatController extends Controller
                     'jabatans.id_jabatan as jabatan_id',
                     'jabatans.nama_jabatan as jabatan_nama',
                     'atasan.id_jabatan as atasan_id',
-                    'atasan.nama_jabatan as atasan_nama',
+                    'atasan.nama_jabatan as atasan_nama'
                 )
                 ->orderBy('jabatans.nama_jabatan', 'ASC')
                 ->get();
@@ -210,7 +210,7 @@ class menuEmpatController extends Controller
                 'jabatans.id_jabatan as jabatan_id',
                 'jabatans.nama_jabatan as jabatan_nama',
                 'atasan.id_jabatan as atasan_id',
-                'atasan.nama_jabatan as atasan_nama',
+                'atasan.nama_jabatan as atasan_nama'
             )
             ->orderBy('jabatans.nama_jabatan', 'ASC')
             ->get();
@@ -230,7 +230,7 @@ class menuEmpatController extends Controller
                 'jabatans.id_jabatan as jabatan_id',
                 'jabatans.nama_jabatan as jabatan_nama',
                 'atasan.id_jabatan as atasan_id',
-                'atasan.nama_jabatan as atasan_nama',
+                'atasan.nama_jabatan as atasan_nama'
             )
             ->orderBy('jabatans.nama_jabatan', 'ASC')
             ->get();
@@ -272,7 +272,7 @@ class menuEmpatController extends Controller
                     'jabatans.id_jabatan as jabatan_id',
                     'jabatans.nama_jabatan as jabatan_nama',
                     'atasan.id_jabatan as atasan_id',
-                    'atasan.nama_jabatan as atasan_nama',
+                    'atasan.nama_jabatan as atasan_nama'
                 )
                 ->orderBy('jabatans.nama_jabatan', 'ASC')
                 ->get();
@@ -327,7 +327,7 @@ class menuEmpatController extends Controller
             'jabatan_sopds.id as id',
             'jabatans.id_jabatan as jabatan_id',
             'jabatans.nama_jabatan as jabatan_nama',
-            'jabatans.kelas as kelas',
+            'jabatans.kelas as kelas'
         )
         ->orderBy('jabatans.nama_jabatan', 'ASC')
         ->get();
