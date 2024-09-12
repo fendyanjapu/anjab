@@ -18,14 +18,14 @@ class TugasPokok implements ToCollection
 
         $idjabatan = $_REQUEST['id_jabatan_sopd'];
         $arr = [];
-        $arr1 = [];
-        foreach($collection as $key => $value){
-            $arr[] = $value;
-            }
-            $row = array_slice($arr,1);
 
-            foreach($row as $v){
-                $hitung = $v[5] * $v[7] / $v[6];
+        $row = $collection->slice(1);
+
+        foreach($row as $v) {
+            if (!empty($v[1]) && !empty($v[5])) {
+                $arr[] = $v;
+
+                $hitung = ($v[6] != 0) ? ($v[5] * $v[7] / $v[6]) : 0;
 
                 Tugas_pokok::create([
                     'id_jabatan_sopd' => $idjabatan,
@@ -34,11 +34,11 @@ class TugasPokok implements ToCollection
                     'jumlah_hasil' => $v[7],
                     'waktu_penyelesaian_jam' => $v[5],
                     'waktu_efektif' => $v[6],
-                    'kebutuhan_pegawai' =>  number_format($hitung,4),
+                    'kebutuhan_pegawai' => number_format($hitung, 4),
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);
             }
-
+        }
     }
 }

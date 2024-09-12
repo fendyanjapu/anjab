@@ -502,10 +502,11 @@ class menuSatuController extends Controller
 
             $file = $request->file('file');
             $namafile = $file->getClientOriginalName();
-            $file->move('asset/', $namafile);
-            $save = Excel::import(new TugasPokok, public_path('/asset/'.$namafile));
+            $file->move('asset/excel/', $namafile);
+            $save = Excel::import(new TugasPokok, public_path('/asset/excel/'.$namafile));
 
             if($save == true){
+                Alert::success('Data Excel Berhasil Ditambahkan ke Database', '');
                 return redirect()->route('tugasPokok.index');
             }else{
                 return redirect()->back();
