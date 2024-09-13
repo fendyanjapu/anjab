@@ -7,7 +7,7 @@
 			var jml = $('#jumlah_kolom').val();
 			$.ajax({
 				type   : "POST",
-				url    : "/admin/kondisi-lingkungan-kerja/jumlah_kolom",
+				url    : "/anjab/admin/kondisi-lingkungan-kerja/jumlah_kolom",
 				data   : {
                     '_token' : '{{ csrf_token() }}',
                     'jml' : jml

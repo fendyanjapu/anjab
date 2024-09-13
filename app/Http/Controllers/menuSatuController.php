@@ -496,14 +496,14 @@ class menuSatuController extends Controller
             return view('admin.tugas_pokok.add_excel', compact('jsopd'));
         }
         public function TugasPokokDownload(){
-            return response()->download(public_path('asset/doc/contoh_excel.xlsx'));
+            return response()->download('asset/doc/contoh_excel.xlsx');
         }
         public function TugasPokokSaveExcel(Request $request){
 
             $file = $request->file('file');
             $namafile = $file->getClientOriginalName();
             $file->move('asset/excel/', $namafile);
-            $save = Excel::import(new TugasPokok, public_path('/asset/excel/'.$namafile));
+            $save = Excel::import(new TugasPokok, '/asset/excel/'.$namafile);
 
             if($save == true){
                 Alert::success('Data Excel Berhasil Ditambahkan ke Database', '');

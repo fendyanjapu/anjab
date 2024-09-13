@@ -38,7 +38,7 @@
         var id_sopd = $('#id_sopd').val();
       $.ajax({
         type   : "POST",
-        url    : '/jabatan',
+        url    : '/anjab/jabatan',
         data   : {
             '_token': '{{ csrf_token() }}', // Tambahkan token CSRF untuk keamanan
             'id_sopd': id_sopd
@@ -72,7 +72,7 @@
         var id_jabatan = $('#id_jabatan').val();
       $.ajax({
         type   : "POST",
-        url : '/cari',
+        url : '/anjab/cari',
         data   : {
             '_token': '{{ csrf_token() }}', // Tambahkan token CSRF untuk keamanan
             id_sopd: id_sopd,

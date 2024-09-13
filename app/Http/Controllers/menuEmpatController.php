@@ -222,7 +222,7 @@ class menuEmpatController extends Controller
             $id_sopd = session('id_sopd');
 
             // list semua data
-            $data = jabatanSopd::where('id_sopd', $id_sopd)
+            $data = JabatanSopd::where('id_sopd', $id_sopd)
             ->leftJoin('jabatans', 'jabatans.id_jabatan', '=', 'jabatan_sopds.id_jabatan')
             ->leftJoin('jabatans as atasan', 'atasan.id_jabatan', '=', 'jabatan_sopds.atasan')
             ->select(
